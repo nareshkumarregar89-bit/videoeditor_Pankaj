@@ -29,9 +29,12 @@ export default function Footer() {
               <span className="text-base font-bold text-zinc-950 tracking-tight block">
                 Pankaj Regar
               </span>
-              <span className="text-xs text-zinc-500 font-medium">
-                Cinematic Video Editor
-              </span>
+              <a
+                href="mailto:pankajdangriwal54@gmail.com"
+                className="text-xs text-zinc-500 hover:text-amber-700 font-mono transition-colors block"
+              >
+                pankajdangriwal54@gmail.com
+              </a>
             </div>
           </div>
 

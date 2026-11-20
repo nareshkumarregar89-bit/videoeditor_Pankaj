@@ -14,7 +14,7 @@ export default function ContactSection() {
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
 
-  const directEmail = 'pankaj@regarfilms.com';
+  const directEmail = 'pankajdangriwal54@gmail.com';
 
   const handleCopyEmail = () => {
     navigator.clipboard.writeText(directEmail);

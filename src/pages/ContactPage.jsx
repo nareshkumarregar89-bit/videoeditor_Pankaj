@@ -16,7 +16,7 @@ export default function ContactPage() {
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
 
-  const directEmail = 'pankaj@regarfilms.com';
+  const directEmail = 'pankajdangriwal54@gmail.com';
 
   const handleCopyEmail = () => {
     navigator.clipboard.writeText(directEmail);
@@ -66,17 +66,21 @@ export default function ContactPage() {
 
             {/* Direct Email Card */}
             <div className="p-5 rounded-3xl bg-white border border-zinc-200 shadow-subtle mb-8 flex items-center justify-between gap-4">
-              <div className="flex items-center gap-3 truncate">
-                <div className="w-10 h-10 rounded-2xl bg-amber-500/10 border border-amber-500/20 text-amber-600 flex items-center justify-center shrink-0">
+              <a
+                href={`mailto:${directEmail}`}
+                className="flex items-center gap-3 truncate group/mail"
+                title="Send email to Pankaj"
+              >
+                <div className="w-10 h-10 rounded-2xl bg-amber-500/10 border border-amber-500/20 text-amber-600 flex items-center justify-center shrink-0 group-hover/mail:bg-amber-500 group-hover/mail:text-white transition-colors">
                   <Mail className="w-5 h-5" />
                 </div>
                 <div className="truncate">
                   <span className="text-xs text-zinc-500 font-medium block">Direct Email</span>
-                  <span className="text-sm sm:text-base font-bold text-zinc-950 font-mono truncate block">
+                  <span className="text-sm sm:text-base font-bold text-zinc-950 font-mono truncate block group-hover/mail:text-amber-600 transition-colors">
                     {directEmail}
                   </span>
                 </div>
-              </div>
+              </a>
 
               <button
                 onClick={handleCopyEmail}
