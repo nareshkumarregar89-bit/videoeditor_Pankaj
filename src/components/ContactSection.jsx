@@ -6,7 +6,7 @@ export default function ContactSection() {
     name: '',
     email: '',
     projectType: 'Commercial / Brand Film',
-    budget: '$5,000 — $15,000',
+    budget: '₹25,000 — ₹75,000',
     message: ''
   });
 
@@ -148,7 +148,7 @@ export default function ContactSection() {
                         name: '',
                         email: '',
                         projectType: 'Commercial / Brand Film',
-                        budget: '$5,000 — $15,000',
+                        budget: '₹25,000 — ₹75,000',
                         message: ''
                       });
                     }}
@@ -218,11 +218,12 @@ export default function ContactSection() {
                         onChange={(e) => setFormData({ ...formData, budget: e.target.value })}
                         className="w-full px-4 py-3 rounded-xl bg-zinc-50 border border-zinc-200 text-zinc-900 text-sm focus:outline-none focus:border-zinc-950 focus:bg-white transition-colors"
                       >
-                        <option>Under $5,000</option>
-                        <option>$5,000 — $15,000</option>
-                        <option>$15,000 — $30,000</option>
-                        <option>$30,000+</option>
-                        <option>To be discussed</option>
+                        <option>Under ₹25,000</option>
+                        <option>₹25,000 — ₹75,000</option>
+                        <option>₹75,000 — ₹1,50,000</option>
+                        <option>₹1,50,000 — ₹3,00,000</option>
+                        <option>₹3,00,000+ (High-End Master)</option>
+                        <option>To be discussed / Flexible</option>
                       </select>
                     </div>
                   </div>

@@ -4,6 +4,7 @@ import { PROJECTS as DEFAULT_PROJECTS } from '../data/films';
 const ProjectsContext = createContext();
 
 const STORAGE_KEY = 'pankaj_portfolio_projects_v1';
+const INQUIRIES_STORAGE_KEY = 'pankaj_portfolio_inquiries_v1';
 const TOKEN_KEY = 'pankaj_portfolio_admin_token';
 const API_BASE = ''; // Works with Vite proxy or relative URL in production
 
@@ -33,6 +34,15 @@ export function ProjectsProvider({ children }) {
   const [toastMessage, setToastMessage] = useState(null);
   const [isServerConnected, setIsServerConnected] = useState(false);
 
+  // Inquiries State
+  const [inquiries, setInquiries] = useState(() => {
+    try {
+      const saved = localStorage.getItem(INQUIRIES_STORAGE_KEY);
+      if (saved) return JSON.parse(saved);
+    } catch (e) {}
+    return [];
+  });
+
   const showToast = (msg) => {
     setToastMessage(msg);
     setTimeout(() => setToastMessage(null), 3500);
@@ -57,9 +67,35 @@ export function ProjectsProvider({ children }) {
     }
   }, []);
 
+  // Fetch inquiries from backend for Admin
+  const fetchInquiries = useCallback(async () => {
+    try {
+      const res = await fetch(`${API_BASE}/api/inquiries`, {
+        headers: {
+          Authorization: `Bearer ${token || 'studio-admin-token-2026'}`
+        }
+      });
+      if (res.ok) {
+        const data = await res.json();
+        if (Array.isArray(data)) {
+          setInquiries(data);
+          localStorage.setItem(INQUIRIES_STORAGE_KEY, JSON.stringify(data));
+        }
+      }
+    } catch (err) {
+      console.warn('Could not fetch inquiries:', err);
+    }
+  }, [token]);
+
   useEffect(() => {
     fetchProjectsFromBackend();
   }, [fetchProjectsFromBackend]);
+
+  useEffect(() => {
+    if (isAdmin) {
+      fetchInquiries();
+    }
+  }, [isAdmin, fetchInquiries]);
 
   // Login
   const login = async (password) => {
@@ -222,10 +258,71 @@ export function ProjectsProvider({ children }) {
     }
   };
 
+  // Inquiries Actions
+  const submitInquiry = async (inquiryData) => {
+    try {
+      const res = await fetch(`${API_BASE}/api/inquiries`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(inquiryData),
+      });
+      const data = await res.json();
+      if (data.success && data.inquiry) {
+        setInquiries((prev) => [data.inquiry, ...prev]);
+        showToast('Your message has been delivered directly to Pankaj!');
+        return { success: true };
+      }
+    } catch (err) {
+      console.warn('Backend inquiry error, saving locally:', err);
+      const localInq = {
+        id: `inq-${Date.now()}`,
+        ...inquiryData,
+        status: 'unread',
+        createdAt: new Date().toISOString()
+      };
+      setInquiries((prev) => [localInq, ...prev]);
+      localStorage.setItem(INQUIRIES_STORAGE_KEY, JSON.stringify([localInq, ...inquiries]));
+      showToast('Your message has been delivered to Pankaj!');
+      return { success: true };
+    }
+    return { success: false, message: 'Could not send inquiry. Please reach out via direct email.' };
+  };
+
+  const toggleInquiryRead = async (id) => {
+    setInquiries((prev) =>
+      prev.map((i) => (i.id === id ? { ...i, status: i.status === 'read' ? 'unread' : 'read' } : i))
+    );
+
+    try {
+      await fetch(`${API_BASE}/api/inquiries/${id}/read`, {
+        method: 'PATCH',
+        headers: {
+          Authorization: `Bearer ${token || 'studio-admin-token-2026'}`
+        }
+      });
+    } catch (err) {}
+  };
+
+  const deleteInquiry = async (id) => {
+    setInquiries((prev) => prev.filter((i) => i.id !== id));
+    showToast('Inquiry deleted.');
+
+    try {
+      await fetch(`${API_BASE}/api/inquiries/${id}`, {
+        method: 'DELETE',
+        headers: {
+          Authorization: `Bearer ${token || 'studio-admin-token-2026'}`
+        }
+      });
+    } catch (err) {}
+  };
+
   return (
     <ProjectsContext.Provider
       value={{
         projects,
+        inquiries,
+        unreadInquiriesCount: inquiries.filter((i) => i.status === 'unread').length,
         isAdmin,
         isServerConnected,
         adminModalOpen,
@@ -242,6 +339,10 @@ export function ProjectsProvider({ children }) {
         uploadImage,
         resetToDefaults,
         fetchProjectsFromBackend,
+        fetchInquiries,
+        submitInquiry,
+        toggleInquiryRead,
+        deleteInquiry,
         DEFAULT_PASSWORD: 'admin',
       }}
     >

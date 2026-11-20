@@ -240,7 +240,7 @@ export default function ServicesRates() {
                   Commercial Day Rate
                 </h4>
                 <div className="flex items-baseline gap-2 my-1">
-                  <span className="font-headline-xl text-3xl sm:text-4xl text-primary font-bold">$1,450</span>
+                  <span className="font-headline-xl text-3xl sm:text-4xl text-primary font-bold">₹35,000</span>
                   <span className="font-meta-timecode text-[11px] text-on-surface-variant uppercase">
                     / 10-HR SUITE DAY
                   </span>

@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
 import { Mail, MapPin, Send, CheckCircle2, Copy, Check, Clock, Globe } from 'lucide-react';
+import { useProjects } from '../context/ProjectsContext';
 
 export default function ContactPage() {
+  const { submitInquiry } = useProjects();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     projectType: 'Commercial / Brand Film',
-    budget: '$5,000 — $15,000',
+    budget: '₹25,000 — ₹75,000',
     message: ''
   });
 
@@ -22,14 +24,15 @@ export default function ContactPage() {
     setTimeout(() => setCopied(false), 2500);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
 
-    setTimeout(() => {
-      setLoading(false);
+    const res = await submitInquiry(formData);
+    setLoading(false);
+    if (res?.success) {
       setSubmitted(true);
-    }, 800);
+    }
   };
 
   return (
@@ -156,7 +159,7 @@ export default function ContactPage() {
                         name: '',
                         email: '',
                         projectType: 'Commercial / Brand Film',
-                        budget: '$5,000 — $15,000',
+                        budget: '₹25,000 — ₹75,000',
                         message: ''
                       });
                     }}
@@ -226,11 +229,12 @@ export default function ContactPage() {
                         onChange={(e) => setFormData({ ...formData, budget: e.target.value })}
                         className="w-full px-4 py-3 rounded-xl bg-zinc-50 border border-zinc-200 text-zinc-900 text-sm focus:outline-none focus:border-zinc-950 focus:bg-white transition-colors"
                       >
-                        <option>Under $5,000</option>
-                        <option>$5,000 — $15,000</option>
-                        <option>$15,000 — $30,000</option>
-                        <option>$30,000+</option>
-                        <option>To be discussed</option>
+                        <option>Under ₹25,000</option>
+                        <option>₹25,000 — ₹75,000</option>
+                        <option>₹75,000 — ₹1,50,000</option>
+                        <option>₹1,50,000 — ₹3,00,000</option>
+                        <option>₹3,00,000+ (High-End Master)</option>
+                        <option>To be discussed / Flexible</option>
                       </select>
                     </div>
                   </div>

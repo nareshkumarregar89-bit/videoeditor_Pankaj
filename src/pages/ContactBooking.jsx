@@ -11,7 +11,7 @@ export default function ContactBooking() {
     phone: '',
     projectType: 'Commercial',
     deliveryWindow: '',
-    budgetTier: '$15k-$30k',
+    budgetTier: '₹50k-₹1.5L',
     deckLink: '',
     creativeVision: '',
     ndaAccepted: true,
@@ -35,7 +35,7 @@ export default function ContactBooking() {
       phone: '',
       projectType: 'Commercial',
       deliveryWindow: '',
-      budgetTier: '$15k-$30k',
+      budgetTier: '₹50k-₹1.5L',
       deckLink: '',
       creativeVision: '',
       ndaAccepted: true,
@@ -222,9 +222,9 @@ export default function ContactBooking() {
                     </label>
                     <div className="grid grid-cols-3 gap-2">
                       {[
-                        { tier: '$5k-$15k', sub: 'Post/Edit Only' },
-                        { tier: '$15k-$30k', sub: 'Mid Commercial' },
-                        { tier: '$30k+', sub: 'Full Production' },
+                        { tier: '₹25k-₹50k', sub: 'Post / Quick Cut' },
+                        { tier: '₹50k-₹1.5L', sub: 'Commercial Cut' },
+                        { tier: '₹1.5L+', sub: 'Full Master Suite' },
                       ].map((b) => {
                         const isSelected = formData.budgetTier === b.tier;
                         return (

@@ -3,7 +3,7 @@ import { useProjects } from '../context/ProjectsContext';
 import {
   Lock, Eye, EyeOff, ShieldAlert, Film, Plus, Trash2, Edit3,
   Search, RotateCcw, LogOut, Upload, ArrowLeft, ArrowUpRight, Check, X,
-  Youtube, Sparkles, CheckCircle2
+  Youtube, Sparkles, CheckCircle2, Inbox, Mail, MessageSquare, Clock
 } from 'lucide-react';
 
 function extractYouTubeId(url) {
@@ -28,6 +28,10 @@ const PRESET_IMAGES = [
 export default function AdminPage({ onPreviewProject }) {
   const {
     projects,
+    inquiries = [],
+    unreadInquiriesCount = 0,
+    toggleInquiryRead,
+    deleteInquiry,
     isAdmin,
     login,
     logout,
@@ -38,6 +42,11 @@ export default function AdminPage({ onPreviewProject }) {
     resetToDefaults,
     isServerConnected
   } = useProjects();
+
+  // Active Tab: 'videos' | 'inquiries'
+  const [activeTab, setActiveTab] = useState('videos');
+  const [inquirySearch, setInquirySearch] = useState('');
+  const [inquiryFilter, setInquiryFilter] = useState('all'); // 'all' | 'unread' | 'read'
 
   // Login form state
   const [password, setPassword] = useState('');
@@ -85,6 +94,20 @@ export default function AdminPage({ onPreviewProject }) {
     p.client?.toLowerCase().includes(searchQuery.toLowerCase()) ||
     p.category?.toLowerCase().includes(searchQuery.toLowerCase())
   );
+
+  // Filter inquiries by search & status
+  const filteredInquiries = inquiries.filter((inq) => {
+    const matchesSearch =
+      inq.name?.toLowerCase().includes(inquirySearch.toLowerCase()) ||
+      inq.email?.toLowerCase().includes(inquirySearch.toLowerCase()) ||
+      inq.projectType?.toLowerCase().includes(inquirySearch.toLowerCase()) ||
+      inq.message?.toLowerCase().includes(inquirySearch.toLowerCase());
+
+    if (!matchesSearch) return false;
+    if (inquiryFilter === 'unread') return inq.status === 'unread';
+    if (inquiryFilter === 'read') return inq.status === 'read';
+    return true;
+  });
 
   const openAddModal = () => {
     setIsNew(true);
@@ -329,114 +352,332 @@ export default function AdminPage({ onPreviewProject }) {
           </div>
         </div>
 
-        {/* Search Bar & Stats */}
-        <div className="bg-white border border-zinc-200 rounded-2xl p-4 sm:px-6 mb-6 flex flex-col sm:flex-row items-center justify-between gap-4 shadow-subtle">
-          <div className="relative w-full sm:w-96">
-            <Search className="w-4 h-4 text-zinc-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
-            <input
-              type="text"
-              placeholder="Search videos by title, client, or category..."
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full pl-9 pr-4 py-2.5 rounded-xl bg-zinc-50 border border-zinc-200 text-xs text-zinc-900 placeholder:text-zinc-400 focus:outline-none focus:border-zinc-950 focus:bg-white transition-colors"
-            />
+        {/* Navigation Tabs Bar */}
+        <div className="flex flex-wrap items-center justify-between gap-4 mb-6">
+          <div className="flex items-center gap-2">
+            <button
+              onClick={() => setActiveTab('videos')}
+              className={`px-5 py-2.5 rounded-2xl text-xs sm:text-sm font-bold transition-all flex items-center gap-2 ${
+                activeTab === 'videos'
+                  ? 'bg-zinc-900 text-white shadow-sm'
+                  : 'bg-white text-zinc-700 hover:text-zinc-950 hover:bg-zinc-100 border border-zinc-200 shadow-subtle'
+              }`}
+            >
+              <Film className="w-4 h-4 text-amber-400" />
+              <span>Manage Videos ({projects.length})</span>
+            </button>
+
+            <button
+              onClick={() => setActiveTab('inquiries')}
+              className={`px-5 py-2.5 rounded-2xl text-xs sm:text-sm font-bold transition-all flex items-center gap-2 relative ${
+                activeTab === 'inquiries'
+                  ? 'bg-zinc-900 text-white shadow-sm'
+                  : 'bg-white text-zinc-700 hover:text-zinc-950 hover:bg-zinc-100 border border-zinc-200 shadow-subtle'
+              }`}
+            >
+              <Inbox className="w-4 h-4 text-amber-500" />
+              <span>Client Inquiries ({inquiries.length})</span>
+              {unreadInquiriesCount > 0 && (
+                <span className="px-2 py-0.5 rounded-full bg-amber-500 text-zinc-950 text-[10px] font-black animate-pulse">
+                  {unreadInquiriesCount} New
+                </span>
+              )}
+            </button>
           </div>
 
-          <div className="text-xs font-semibold text-zinc-500">
-            Showing <strong className="text-zinc-950">{filtered.length}</strong> of {projects.length} portfolio films
-          </div>
-        </div>
-
-        {/* Projects List */}
-        <div className="space-y-3">
-          {filtered.length === 0 ? (
-            <div className="text-center py-20 bg-white rounded-3xl border border-zinc-200 p-8">
-              <Film className="w-12 h-12 text-zinc-300 mx-auto mb-3" />
-              <h4 className="text-base font-bold text-zinc-900 mb-1">No videos found</h4>
-              <p className="text-xs text-zinc-500 mb-4">
-                No matching projects found. Try another search or add a new video.
-              </p>
-              <button
-                onClick={openAddModal}
-                className="px-4 py-2 rounded-xl bg-zinc-900 text-white text-xs font-bold inline-flex items-center gap-1.5"
-              >
-                <Plus className="w-4 h-4 text-amber-400" />
-                Add Video Now
-              </button>
-            </div>
+          {activeTab === 'videos' ? (
+            <button
+              onClick={openAddModal}
+              className="px-5 py-2.5 rounded-xl bg-zinc-900 hover:bg-black text-white text-xs font-bold transition-all flex items-center gap-1.5 shadow-md hover:shadow-lg hover:-translate-y-0.5"
+            >
+              <Plus className="w-4 h-4 text-amber-400" />
+              Add New Video
+            </button>
           ) : (
-            filtered.map((project) => (
-              <div
-                key={project.id}
-                className="bg-white border border-zinc-200 rounded-2xl p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-4 shadow-subtle hover:border-zinc-300 hover:shadow-card transition-all"
-              >
-                {/* Thumbnail & Metadata */}
-                <div className="flex items-center gap-4">
-                  <div className="relative w-28 h-18 rounded-xl overflow-hidden bg-zinc-950 shrink-0 border border-zinc-200 shadow-sm">
-                    <img
-                      src={project.thumbnail}
-                      alt={project.title}
-                      className="w-full h-full object-cover"
-                    />
-                    <span className="absolute bottom-1 right-1 px-1.5 py-0.2 rounded bg-black/75 text-[9px] font-mono text-white">
-                      {project.runtime}
-                    </span>
-                  </div>
-
-                  <div>
-                    <div className="flex items-center gap-2 mb-1">
-                      <span className="px-2.5 py-0.5 rounded-full bg-amber-500/10 border border-amber-500/20 text-[10px] font-bold text-amber-800 uppercase tracking-wider">
-                        {project.categoryLabel || project.category}
-                      </span>
-                      {project.badge && (
-                        <span className="px-2 py-0.5 rounded bg-zinc-100 text-[10px] font-bold text-zinc-700">
-                          {project.badge}
-                        </span>
-                      )}
-                      <span className="text-xs text-zinc-400 font-medium">
-                        {project.year}
-                      </span>
-                    </div>
-
-                    <h3 className="text-base sm:text-lg font-bold text-zinc-950 leading-tight">
-                      {project.title}
-                    </h3>
-
-                    <p className="text-xs text-zinc-500 mt-0.5">
-                      {project.client} • <span className="text-zinc-700 font-medium">{project.role}</span>
-                    </p>
-                  </div>
-                </div>
-
-                {/* Actions */}
-                <div className="flex items-center gap-2.5 self-end sm:self-center shrink-0">
-                  <button
-                    onClick={() => onPreviewProject(project)}
-                    className="px-3.5 py-2 rounded-xl bg-zinc-100 hover:bg-zinc-200 text-zinc-800 text-xs font-semibold flex items-center gap-1.5 transition-colors"
-                  >
-                    <span>Preview</span>
-                  </button>
-
-                  <button
-                    onClick={() => openEditModal(project)}
-                    className="px-4 py-2 rounded-xl bg-zinc-900 hover:bg-black text-white text-xs font-bold flex items-center gap-1.5 transition-colors shadow-sm"
-                  >
-                    <Edit3 className="w-3.5 h-3.5 text-amber-400" />
-                    <span>Edit</span>
-                  </button>
-
-                  <button
-                    onClick={() => handleDelete(project.id, project.title)}
-                    className="p-2 rounded-xl bg-white border border-zinc-200 hover:bg-red-50 hover:border-red-200 text-zinc-500 hover:text-red-700 transition-colors"
-                    title="Delete Video"
-                  >
-                    <Trash2 className="w-4 h-4" />
-                  </button>
-                </div>
-              </div>
-            ))
+            <div className="text-xs font-semibold text-zinc-500">
+              <span className="text-zinc-950 font-bold">{unreadInquiriesCount}</span> unread client bookings
+            </div>
           )}
         </div>
+
+        {/* TAB 1: MANAGE VIDEOS */}
+        {activeTab === 'videos' ? (
+          <div>
+            {/* Search Bar & Stats */}
+            <div className="bg-white border border-zinc-200 rounded-2xl p-4 sm:px-6 mb-6 flex flex-col sm:flex-row items-center justify-between gap-4 shadow-subtle">
+              <div className="relative w-full sm:w-96">
+                <Search className="w-4 h-4 text-zinc-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
+                <input
+                  type="text"
+                  placeholder="Search videos by title, client, or category..."
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  className="w-full pl-9 pr-4 py-2.5 rounded-xl bg-zinc-50 border border-zinc-200 text-xs text-zinc-900 placeholder:text-zinc-400 focus:outline-none focus:border-zinc-950 focus:bg-white transition-colors"
+                />
+              </div>
+
+              <div className="text-xs font-semibold text-zinc-500">
+                Showing <strong className="text-zinc-950">{filtered.length}</strong> of {projects.length} portfolio films
+              </div>
+            </div>
+
+            {/* Projects List */}
+            <div className="space-y-3">
+              {filtered.length === 0 ? (
+                <div className="text-center py-20 bg-white rounded-3xl border border-zinc-200 p-8">
+                  <Film className="w-12 h-12 text-zinc-300 mx-auto mb-3" />
+                  <h4 className="text-base font-bold text-zinc-900 mb-1">No videos found</h4>
+                  <p className="text-xs text-zinc-500 mb-4">
+                    No matching projects found. Try another search or add a new video.
+                  </p>
+                  <button
+                    onClick={openAddModal}
+                    className="px-4 py-2 rounded-xl bg-zinc-900 text-white text-xs font-bold inline-flex items-center gap-1.5"
+                  >
+                    <Plus className="w-4 h-4 text-amber-400" />
+                    Add Video Now
+                  </button>
+                </div>
+              ) : (
+                filtered.map((project) => (
+                  <div
+                    key={project.id}
+                    className="bg-white border border-zinc-200 rounded-2xl p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-4 shadow-subtle hover:border-zinc-300 hover:shadow-card transition-all"
+                  >
+                    {/* Thumbnail & Metadata */}
+                    <div className="flex items-center gap-4">
+                      <div className="relative w-28 h-18 rounded-xl overflow-hidden bg-zinc-950 shrink-0 border border-zinc-200 shadow-sm">
+                        <img
+                          src={project.thumbnail}
+                          alt={project.title}
+                          className="w-full h-full object-cover"
+                        />
+                        <span className="absolute bottom-1 right-1 px-1.5 py-0.2 rounded bg-black/75 text-[9px] font-mono text-white">
+                          {project.runtime}
+                        </span>
+                      </div>
+
+                      <div>
+                        <div className="flex items-center gap-2 mb-1">
+                          <span className="px-2.5 py-0.5 rounded-full bg-amber-500/10 border border-amber-500/20 text-[10px] font-bold text-amber-800 uppercase tracking-wider">
+                            {project.categoryLabel || project.category}
+                          </span>
+                          {project.badge && (
+                            <span className="px-2 py-0.5 rounded bg-zinc-100 text-[10px] font-bold text-zinc-700">
+                              {project.badge}
+                            </span>
+                          )}
+                          <span className="text-xs text-zinc-400 font-medium">
+                            {project.year}
+                          </span>
+                        </div>
+
+                        <h3 className="text-base sm:text-lg font-bold text-zinc-950 leading-tight">
+                          {project.title}
+                        </h3>
+
+                        <p className="text-xs text-zinc-500 mt-0.5">
+                          {project.client} • <span className="text-zinc-700 font-medium">{project.role}</span>
+                        </p>
+                      </div>
+                    </div>
+
+                    {/* Actions */}
+                    <div className="flex items-center gap-2.5 self-end sm:self-center shrink-0">
+                      <button
+                        onClick={() => onPreviewProject(project)}
+                        className="px-3.5 py-2 rounded-xl bg-zinc-100 hover:bg-zinc-200 text-zinc-800 text-xs font-semibold flex items-center gap-1.5 transition-colors"
+                      >
+                        <span>Preview</span>
+                      </button>
+
+                      <button
+                        onClick={() => openEditModal(project)}
+                        className="px-4 py-2 rounded-xl bg-zinc-900 hover:bg-black text-white text-xs font-bold flex items-center gap-1.5 transition-colors shadow-sm"
+                      >
+                        <Edit3 className="w-3.5 h-3.5 text-amber-400" />
+                        <span>Edit</span>
+                      </button>
+
+                      <button
+                        onClick={() => handleDelete(project.id, project.title)}
+                        className="p-2 rounded-xl bg-white border border-zinc-200 hover:bg-red-50 hover:border-red-200 text-zinc-500 hover:text-red-700 transition-colors"
+                        title="Delete Video"
+                      >
+                        <Trash2 className="w-4 h-4" />
+                      </button>
+                    </div>
+                  </div>
+                ))
+              )}
+            </div>
+          </div>
+        ) : (
+          /* TAB 2: CLIENT INQUIRIES INBOX */
+          <div>
+            {/* Inquiries Filter Bar */}
+            <div className="bg-white border border-zinc-200 rounded-2xl p-4 sm:px-6 mb-6 flex flex-col sm:flex-row items-center justify-between gap-4 shadow-subtle">
+              <div className="relative w-full sm:w-96">
+                <Search className="w-4 h-4 text-zinc-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
+                <input
+                  type="text"
+                  placeholder="Search inquiries by client name, email, project..."
+                  value={inquirySearch}
+                  onChange={(e) => setInquirySearch(e.target.value)}
+                  className="w-full pl-9 pr-4 py-2.5 rounded-xl bg-zinc-50 border border-zinc-200 text-xs text-zinc-900 placeholder:text-zinc-400 focus:outline-none focus:border-zinc-950 focus:bg-white transition-colors"
+                />
+              </div>
+
+              <div className="flex items-center gap-2">
+                <button
+                  onClick={() => setInquiryFilter('all')}
+                  className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-colors ${
+                    inquiryFilter === 'all'
+                      ? 'bg-zinc-900 text-white'
+                      : 'bg-zinc-100 text-zinc-700 hover:bg-zinc-200'
+                  }`}
+                >
+                  All ({inquiries.length})
+                </button>
+                <button
+                  onClick={() => setInquiryFilter('unread')}
+                  className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-colors ${
+                    inquiryFilter === 'unread'
+                      ? 'bg-amber-500 text-zinc-950'
+                      : 'bg-zinc-100 text-zinc-700 hover:bg-zinc-200'
+                  }`}
+                >
+                  Unread ({unreadInquiriesCount})
+                </button>
+                <button
+                  onClick={() => setInquiryFilter('read')}
+                  className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-colors ${
+                    inquiryFilter === 'read'
+                      ? 'bg-zinc-900 text-white'
+                      : 'bg-zinc-100 text-zinc-700 hover:bg-zinc-200'
+                  }`}
+                >
+                  Read ({inquiries.length - unreadInquiriesCount})
+                </button>
+              </div>
+            </div>
+
+            {/* Inquiries Cards List */}
+            <div className="space-y-4">
+              {filteredInquiries.length === 0 ? (
+                <div className="text-center py-20 bg-white rounded-3xl border border-zinc-200 p-8 shadow-subtle">
+                  <Inbox className="w-12 h-12 text-zinc-300 mx-auto mb-3" />
+                  <h4 className="text-base font-bold text-zinc-900 mb-1">No inquiries found</h4>
+                  <p className="text-xs text-zinc-500 max-w-md mx-auto">
+                    When prospective clients fill out the booking form on the Contact page, their project parameters and messages will arrive here in real-time.
+                  </p>
+                </div>
+              ) : (
+                filteredInquiries.map((inq) => (
+                  <div
+                    key={inq.id}
+                    className={`bg-white border rounded-3xl p-6 sm:p-7 transition-all shadow-subtle ${
+                      inq.status === 'unread'
+                        ? 'border-amber-400 bg-amber-50/20 shadow-md ring-1 ring-amber-400/40'
+                        : 'border-zinc-200 hover:border-zinc-300'
+                    }`}
+                  >
+                    {/* Header Row */}
+                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-4 pb-4 border-b border-zinc-100">
+                      <div>
+                        <div className="flex items-center gap-2.5 mb-1">
+                          <h3 className="text-lg font-black text-zinc-950">
+                            {inq.name}
+                          </h3>
+                          {inq.status === 'unread' ? (
+                            <span className="px-2.5 py-0.5 rounded-full bg-amber-500 text-zinc-950 text-[10px] font-black uppercase tracking-wider animate-pulse">
+                              ● New / Unread
+                            </span>
+                          ) : (
+                            <span className="px-2 py-0.5 rounded-full bg-zinc-100 text-zinc-600 text-[10px] font-bold">
+                              ✓ Read
+                            </span>
+                          )}
+                        </div>
+
+                        <div className="flex flex-wrap items-center gap-3 text-xs text-zinc-500">
+                          <a
+                            href={`mailto:${inq.email}`}
+                            className="font-medium text-amber-700 hover:underline flex items-center gap-1 font-mono"
+                          >
+                            <Mail className="w-3.5 h-3.5" />
+                            {inq.email}
+                          </a>
+                          <span>•</span>
+                          <span className="flex items-center gap-1 font-mono text-[11px] text-zinc-400">
+                            <Clock className="w-3 h-3" />
+                            {new Date(inq.createdAt).toLocaleString(undefined, {
+                              month: 'short',
+                              day: 'numeric',
+                              year: 'numeric',
+                              hour: '2-digit',
+                              minute: '2-digit'
+                            })}
+                          </span>
+                        </div>
+                      </div>
+
+                      {/* Project Type & Budget Badges */}
+                      <div className="flex flex-wrap items-center gap-2 self-start sm:self-center">
+                        <span className="px-3 py-1 rounded-xl bg-zinc-100 border border-zinc-200/80 text-xs font-bold text-zinc-800">
+                          {inq.projectType}
+                        </span>
+                        <span className="px-3 py-1 rounded-xl bg-emerald-50 border border-emerald-200 text-xs font-bold text-emerald-800 font-mono">
+                          {inq.budget}
+                        </span>
+                      </div>
+                    </div>
+
+                    {/* Message Body */}
+                    <div className="bg-zinc-50 p-4 rounded-2xl border border-zinc-200/70 mb-5 text-left">
+                      <p className="text-xs sm:text-sm text-zinc-800 leading-relaxed whitespace-pre-wrap">
+                        "{inq.message}"
+                      </p>
+                    </div>
+
+                    {/* Actions Row */}
+                    <div className="flex flex-wrap items-center justify-between gap-3 pt-2">
+                      <div className="flex items-center gap-2">
+                        <a
+                          href={`mailto:${inq.email}?subject=Re: ${encodeURIComponent(inq.projectType)} Inquiry — Pankaj Regar&body=Hi ${encodeURIComponent(inq.name)},\n\nThank you for reaching out regarding your ${encodeURIComponent(inq.projectType)} project.\n\nBest regards,\nPankaj Regar\nCinematic Video Editor`}
+                          className="px-4 py-2 rounded-xl bg-zinc-900 hover:bg-black text-white text-xs font-bold inline-flex items-center gap-1.5 transition-colors shadow-sm"
+                        >
+                          <Mail className="w-3.5 h-3.5 text-amber-400" />
+                          <span>Reply via Email</span>
+                          <ArrowUpRight className="w-3.5 h-3.5" />
+                        </a>
+
+                        <button
+                          onClick={() => toggleInquiryRead(inq.id)}
+                          className="px-3.5 py-2 rounded-xl bg-white border border-zinc-200 hover:bg-zinc-100 text-zinc-700 text-xs font-semibold transition-colors"
+                        >
+                          {inq.status === 'unread' ? 'Mark as Read' : 'Mark as Unread'}
+                        </button>
+                      </div>
+
+                      <button
+                        onClick={() => {
+                          if (window.confirm(`Delete inquiry from ${inq.name}?`)) {
+                            deleteInquiry(inq.id);
+                          }
+                        }}
+                        className="p-2 rounded-xl bg-white border border-zinc-200 hover:bg-red-50 hover:border-red-200 text-zinc-500 hover:text-red-700 transition-colors"
+                        title="Delete Inquiry"
+                      >
+                        <Trash2 className="w-4 h-4" />
+                      </button>
+                    </div>
+                  </div>
+                ))
+              )}
+            </div>
+          </div>
+        )}
 
       </div>
 
