@@ -30,25 +30,26 @@ export default function AboutSection() {
           <div className="lg:col-span-5 relative">
             <div className="relative mx-auto max-w-md lg:max-w-none">
               
-              {/* Main Portrait */}
-              <div className="relative rounded-2xl overflow-hidden border border-zinc-200 bg-zinc-100 shadow-xl aspect-[4/5]">
+              {/* Main Portrait with Clean Gradient Blend */}
+              <div className="relative rounded-3xl overflow-hidden border border-zinc-200/90 bg-gradient-to-b from-zinc-100 to-white shadow-2xl aspect-[3/4] group">
                 <img
                   src="/assets/images/pankaj_regar_portrait.jpg"
-                  alt="Pankaj Regar — Cinematic Video Editor"
-                  className="w-full h-full object-cover object-top"
+                  alt="Pankaj Regar"
+                  className="w-full h-full object-cover object-[center_12%] group-hover:scale-105 transition-transform duration-700 ease-out"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-zinc-950/60 via-transparent to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-white/70 via-transparent to-transparent pointer-events-none" />
+                <div className="absolute inset-0 ring-1 ring-inset ring-black/5 rounded-3xl pointer-events-none" />
+              </div>
 
-                {/* Floating Experience Badge */}
-                <div className="absolute bottom-6 left-6 right-6 p-4 rounded-xl bg-white/95 backdrop-blur-md border border-zinc-200/90 shadow-lg">
-                  <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-lg bg-amber-500/15 text-amber-700 flex items-center justify-center font-black text-lg">
-                      8+
-                    </div>
-                    <div>
-                      <p className="text-zinc-950 font-bold text-sm">Years in Cinematic Video Editing</p>
-                      <p className="text-xs text-zinc-500">Over 45+ commercial & narrative credits</p>
-                    </div>
+              {/* Floating Experience Badge Placed Cleanly Outside Image */}
+              <div className="mt-4 p-4 rounded-xl bg-white border border-zinc-200/90 shadow-sm">
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-lg bg-amber-500/15 text-amber-700 flex items-center justify-center font-black text-lg">
+                    8+
+                  </div>
+                  <div>
+                    <p className="text-zinc-950 font-bold text-sm">Years in Cinematic Video Editing</p>
+                    <p className="text-xs text-zinc-500">Over 45+ commercial & narrative credits</p>
                   </div>
                 </div>
               </div>
@@ -87,7 +88,7 @@ export default function AboutSection() {
                 Having spent years refining the art of visual rhythm in the cutting room, I bridge the crucial gap between production rushes and final cinema delivery. I believe an edit should do more than assemble footage—it should hypnotize the viewer, dictate their pulse, and linger in memory long after the credits roll.
               </p>
               <p>
-                From handling native 8K RED and ARRI raw rushes to crafting custom Kodak 35mm photochemical grain profiles, my post-production pipeline is engineered for supreme visual punch and broadcast fidelity.
+                From handling native 8K multi-camera raw rushes to crafting custom Kodak 35mm photochemical grain profiles, my post-production pipeline is engineered for supreme visual punch and broadcast fidelity.
               </p>
             </div>
 

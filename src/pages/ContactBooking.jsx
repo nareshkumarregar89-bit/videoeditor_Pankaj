@@ -367,20 +367,20 @@ export default function ContactBooking() {
               </div>
             </div>
 
-            {/* Global Footprint & Representation */}
+            {/* Workflow & Availability */}
             <div className="bg-surface-container-low p-6 rounded-xl flex flex-col gap-3 shadow-md border border-white/5">
               <span className="font-label-caps text-xs uppercase text-on-surface-variant tracking-widest font-bold">
-                DEPLOYMENT &amp; RESIDENCY
+                POST-PRODUCTION SUITE
               </span>
               <div className="flex flex-col gap-3 pt-1">
                 <div className="flex items-start gap-2.5">
-                  <span className="material-symbols-outlined text-secondary text-lg mt-0.5">location_on</span>
+                  <span className="material-symbols-outlined text-secondary text-lg mt-0.5">terminal</span>
                   <div className="flex flex-col">
                     <span className="font-label-code text-xs text-on-surface font-semibold">
-                      New Delhi Studio / Post Suite
+                      Master Editorial & Finishing Suite
                     </span>
                     <span className="font-meta-timecode text-[10px] text-on-surface-variant">
-                      IST (UTC +5:30) • Physical Grading Rig
+                      Dedicated Timeline & Grading Rig
                     </span>
                   </div>
                 </div>
@@ -388,10 +388,10 @@ export default function ContactBooking() {
                   <span className="material-symbols-outlined text-secondary text-lg mt-0.5">public</span>
                   <div className="flex flex-col">
                     <span className="font-label-code text-xs text-on-surface font-semibold">
-                      London / Europe Satellite
+                      Live Review & Frame.io Sessions
                     </span>
                     <span className="font-meta-timecode text-[10px] text-on-surface-variant">
-                      GMT/BST • Production Liaison
+                      Real-time client streaming
                     </span>
                   </div>
                 </div>
@@ -518,7 +518,7 @@ export default function ContactBooking() {
                 <div className="flex flex-col">
                   <span className="font-label-code text-xs text-on-surface font-semibold">Arjun Kapoor</span>
                   <span className="font-meta-timecode text-[10px] text-on-surface-variant uppercase">
-                    Executive Producer • Blackline London
+                    Executive Producer • Commercial Films
                   </span>
                 </div>
               </div>

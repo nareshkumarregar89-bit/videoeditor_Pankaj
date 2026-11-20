@@ -43,10 +43,11 @@
   }
 }
 
+/* Animations */
 @keyframes fadeIn {
   from {
     opacity: 0;
-    transform: translateY(6px);
+    transform: translateY(8px);
   }
   to {
     opacity: 1;
@@ -55,7 +56,39 @@
 }
 
 .animate-fadeIn {
-  animation: fadeIn 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation: fadeIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Cinematic Face Reveal Animation */
+@keyframes faceReveal {
+  0% {
+    opacity: 0.3;
+    transform: scale(1.04);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-faceReveal {
+  animation: faceReveal 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Ambient Breathing Aura */
+@keyframes auraPulse {
+  0%, 100% {
+    opacity: 0.35;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.65;
+    transform: scale(1.06);
+  }
+}
+
+.animate-auraPulse {
+  animation: auraPulse 4s ease-in-out infinite;
 }
 
 /* Hide scrollbar for category tabs */

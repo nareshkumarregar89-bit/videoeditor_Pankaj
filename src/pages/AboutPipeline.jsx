@@ -42,7 +42,7 @@ export default function AboutPipeline() {
                 </Link>
                 <div className="px-3 py-1.5 bg-surface-container-highest rounded text-on-surface-variant font-label-code text-xs flex items-center gap-1.5 border border-white/5">
                   <span>LUT:</span>
-                  <span className="text-on-surface font-semibold">PR-35MM-ACEScc</span>
+                  <span className="text-on-surface font-semibold">PR-35MM-COLOR</span>
                 </div>
               </div>
             </div>
@@ -71,7 +71,7 @@ export default function AboutPipeline() {
                     </span>
                     <p className="font-headline-md text-lg text-on-surface font-semibold">Pankaj Regar</p>
                     <p className="font-body-sm text-xs text-on-surface-variant">
-                      London / Mumbai / Remote High-Security Stream
+                      Global / Remote High-Security Stream
                     </p>
                   </div>
                   <div className="flex items-center gap-2">
@@ -150,7 +150,7 @@ export default function AboutPipeline() {
 
           <div className="lg:col-span-7 flex flex-col gap-4 text-on-surface-variant font-body-md text-sm sm:text-base leading-relaxed">
             <p>
-              Trained within dark offline boutique edit suites in New Delhi and polished through demanding post pipelines in Soho, London, Pankaj approaches the editing timeline as a musical staff. Rhythm is not merely matching cuts on action; it is choreographing tension, subverting gaze, and releasing breath precisely when the audience anticipates certainty.
+              Trained within high-precision offline boutique edit suites and polished through demanding post pipelines, Pankaj approaches the editing timeline as a musical staff. Rhythm is not merely matching cuts on action; it is choreographing tension, subverting gaze, and releasing breath precisely when the audience anticipates certainty.
             </p>
             <p>
               Specializing in premium automotive films, music videos, luxury brand manifestos, and psychological narrative shorts, his work is identified by its tactile sound-driven pacing, deliberate pauses, and analog-authentic color depth. Every sequence is scrutinized frame-by-frame under true DCI reference monitoring.
@@ -241,7 +241,7 @@ export default function AboutPipeline() {
                 </div>
                 <h3 className="font-headline-md text-lg text-on-surface mb-2 font-semibold">Sound &amp; Color</h3>
                 <p className="font-body-sm text-xs sm:text-sm text-on-surface-variant">
-                  Full roundtrip to DaVinci Resolve Studio in ACEScc, custom film grain print passes, Foley track sweetening, and Dolby Atmos audio bed mastering.
+                  Full roundtrip to DaVinci Resolve Studio in wide-gamut color, custom film grain print passes, Foley track sweetening, and Dolby Atmos audio bed mastering.
                 </p>
               </div>
               <div className="mt-6 pt-3 flex items-center justify-between font-label-code text-xs text-on-surface-variant border-t border-white/5">
@@ -330,7 +330,7 @@ export default function AboutPipeline() {
             <div className="p-5 bg-surface-container-lowest rounded-lg flex flex-col gap-2 border border-white/5">
               <span className="material-symbols-outlined text-secondary text-3xl">movie</span>
               <span className="font-label-caps text-xs text-on-surface uppercase font-semibold">Emulation Science</span>
-              <p className="font-headline-md text-lg text-on-surface font-semibold">ACEScc Pipeline</p>
+              <p className="font-headline-md text-lg text-on-surface font-semibold">Color Grading Pipeline</p>
               <ul className="font-body-sm text-xs text-on-surface-variant space-y-1 mt-1">
                 <li>• Kodak 2383 / Fuji 3513 Print Profiles</li>
                 <li>• Custom Photochemical Halation Math</li>

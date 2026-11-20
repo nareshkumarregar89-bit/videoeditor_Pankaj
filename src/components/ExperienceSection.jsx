@@ -49,10 +49,6 @@ export default function ExperienceSection() {
                           <Calendar className="w-3.5 h-3.5 text-amber-600" />
                           {exp.period}
                         </span>
-                        <span className="inline-flex items-center gap-1 text-[11px] text-zinc-500 font-medium">
-                          <MapPin className="w-3 h-3 text-zinc-400" />
-                          {exp.location}
-                        </span>
                       </div>
 
                       <h3 className="text-lg sm:text-xl font-bold text-zinc-950 mb-1">

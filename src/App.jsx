@@ -1,55 +1,99 @@
 import React, { useState } from 'react';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import Navbar from './components/Navbar';
-import Hero from './components/Hero';
-import ProjectsSection from './components/ProjectsSection';
-import AboutSection from './components/AboutSection';
-import ServicesSection from './components/ServicesSection';
-import SkillsSection from './components/SkillsSection';
-import ExperienceSection from './components/ExperienceSection';
-import TestimonialsSection from './components/TestimonialsSection';
-import ContactSection from './components/ContactSection';
 import Footer from './components/Footer';
+import ScrollToTop from './components/ScrollToTop';
 import VideoModal from './components/VideoModal';
-import { PROJECTS } from './data/films';
 
-export default function App() {
+// Dedicated Pages
+import HomePage from './pages/HomePage';
+import WorksPage from './pages/WorksPage';
+import AboutPage from './pages/AboutPage';
+import ServicesPage from './pages/ServicesPage';
+import ExperiencePage from './pages/ExperiencePage';
+import ContactPage from './pages/ContactPage';
+import AdminPage from './pages/AdminPage';
+
+import { ProjectsProvider, useProjects } from './context/ProjectsContext';
+import { CheckCircle2 } from 'lucide-react';
+
+function PortfolioLayout() {
+  const { projects, toastMessage } = useProjects();
   const [activeProject, setActiveProject] = useState(null);
 
   const handleOpenShowreel = () => {
-    // Open the featured master showreel
-    setActiveProject(PROJECTS[0]);
+    if (projects.length > 0) {
+      setActiveProject(projects[0]);
+    }
   };
 
   return (
     <div className="min-h-screen bg-white text-zinc-900 flex flex-col font-sans selection:bg-amber-400 selection:text-zinc-950">
-      {/* Sticky Navigation */}
-      <Navbar onOpenShowreel={handleOpenShowreel} />
+      <ScrollToTop />
+      
+      {/* Public Sticky Navigation (Clean: No admin buttons) */}
+      <Navbar />
 
-      {/* Main Content Sections */}
+      {/* Multi-Page Routes */}
       <main className="flex-1">
-        <Hero
-          onOpenShowreel={handleOpenShowreel}
-          onSelectProject={setActiveProject}
-        />
-        <ProjectsSection onSelectProject={setActiveProject} />
-        <AboutSection />
-        <ServicesSection />
-        <SkillsSection />
-        <ExperienceSection />
-        <TestimonialsSection />
-        <ContactSection />
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <HomePage
+                onOpenShowreel={handleOpenShowreel}
+                onSelectProject={setActiveProject}
+              />
+            }
+          />
+          <Route
+            path="/works"
+            element={<WorksPage onSelectProject={setActiveProject} />}
+          />
+          <Route path="/about" element={<AboutPage />} />
+          <Route path="/services" element={<ServicesPage />} />
+          <Route path="/experience" element={<ExperiencePage />} />
+          <Route path="/contact" element={<ContactPage />} />
+          
+          {/* Secret Client Admin Route (Accessible ONLY via /admin URL) */}
+          <Route
+            path="/admin"
+            element={<AdminPage onPreviewProject={setActiveProject} />}
+          />
+
+          {/* Catch-all fallback */}
+          <Route path="*" element={<Navigate to="/" replace />} />
+        </Routes>
       </main>
 
-      {/* Footer */}
+      {/* Public Footer (Clean: No admin links) */}
       <Footer />
 
-      {/* Interactive Video Screening Modal */}
+      {/* Global Interactive Cinema Video Screening Modal */}
       {activeProject && (
         <VideoModal
           project={activeProject}
           onClose={() => setActiveProject(null)}
         />
       )}
+
+      {/* Toast Notification Alert */}
+      {toastMessage && (
+        <div className="fixed bottom-6 right-6 z-70 bg-zinc-900 text-white px-4 py-3 rounded-2xl shadow-2xl flex items-center gap-2.5 text-xs font-semibold border border-zinc-700 animate-fadeIn">
+          <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
+          <span>{toastMessage}</span>
+        </div>
+      )}
     </div>
+  );
+}
+
+export default function App() {
+  return (
+    <BrowserRouter>
+      <ProjectsProvider>
+        <PortfolioLayout />
+      </ProjectsProvider>
+    </BrowserRouter>
   );
 }

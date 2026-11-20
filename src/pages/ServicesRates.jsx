@@ -25,7 +25,7 @@ export default function ServicesRates() {
     },
     {
       q: 'Can you handle raw camera footage ingestion from high-speed film shoots?',
-      a: 'Yes. Our studio maintains high-speed 10GbE network storage arrays and dual LTO-8 tape archiving. We routinely handle ARRI RAW, REDCODE RAW, Phantom Flex 4K, and 16-bit uncompressed DPX/TIFF scans from photochemically processed 35mm film stock.',
+      a: 'Yes. Our studio maintains high-speed 10GbE network storage arrays and dual LTO-8 tape archiving. We routinely handle 8K Cinema RAW, REDCODE RAW, Phantom Flex 4K, and 16-bit uncompressed DPX/TIFF scans from photochemically processed 35mm film stock.',
     },
     {
       q: 'How are audio deliverables handled for international broadcast standards?',
@@ -98,7 +98,7 @@ export default function ServicesRates() {
                   Master Color Grading
                 </h3>
                 <p className="font-body-md text-sm text-on-surface-variant leading-relaxed">
-                  HDR10 and Dolby Vision certified suites. Full ACEScc color-managed pipeline, precision film stock emulation (Kodak 5219 / 250D), proprietary split-toning, and tactile halation synthesis.
+                  HDR10 and Dolby Vision certified suites. Full color-managed pipeline, precision film stock emulation (Kodak 5219 / 250D), proprietary split-toning, and tactile halation synthesis.
                 </p>
               </div>
               <div className="flex flex-col gap-1.5 mt-6 pt-4 bg-surface-container-lowest/60 p-3 rounded relative z-10 border border-white/5">
@@ -191,7 +191,7 @@ export default function ServicesRates() {
                   DIT &amp; On-Set Editorial Consultation
                 </h3>
                 <p className="font-body-md text-sm text-on-surface-variant max-w-2xl leading-relaxed">
-                  Live-grade CDL workflows directly from ARRI/RED cameras to client and production monitors. Checksum verification (Silverstack), fast H.264 / ProRes proxy pipelines for same-day assemblies, ensuring the vision captured on set transitions seamlessly to the final color conform.
+                  Live-grade CDL workflows directly from cinema camera systems to client and production monitors. Checksum verification (Silverstack), fast H.264 / ProRes proxy pipelines for same-day assemblies, ensuring the vision captured on set transitions seamlessly to the final color conform.
                 </p>
               </div>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-6 pt-4 bg-surface-container-lowest/60 p-3 rounded relative z-10 border border-white/5">

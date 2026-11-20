@@ -50,7 +50,7 @@ export default function ContactSection() {
             </h2>
 
             <p className="text-zinc-600 text-base leading-relaxed mb-8">
-              Available for commercial video editing, narrative projects, high-impact music videos, and precision color grading. Based in Mumbai, collaborating worldwide.
+              Available for commercial video editing, narrative projects, high-impact music videos, and precision color grading. Collaborating with clients worldwide.
             </p>
 
             {/* Direct Email Card with One-Click Copy */}
@@ -85,15 +85,15 @@ export default function ContactSection() {
               </button>
             </div>
 
-            {/* Location & Availability Highlights */}
+            {/* Availability Highlights */}
             <div className="space-y-4 text-sm text-zinc-600">
               <div className="flex items-center gap-3">
                 <div className="w-8 h-8 rounded-lg bg-white border border-zinc-200 flex items-center justify-center text-amber-600 shrink-0 shadow-subtle">
-                  <MapPin className="w-4 h-4" />
+                  <Film className="w-4 h-4" />
                 </div>
                 <div>
-                  <span className="text-zinc-950 font-bold block">Mumbai, India</span>
-                  <span className="text-xs text-zinc-500">Available for on-location shoots worldwide</span>
+                  <span className="text-zinc-950 font-bold block">Commercial & Narrative Post</span>
+                  <span className="text-xs text-zinc-500">Available for commercials, music videos, and film editing</span>
                 </div>
               </div>
 

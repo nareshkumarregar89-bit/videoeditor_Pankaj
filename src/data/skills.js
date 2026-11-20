@@ -12,7 +12,7 @@ export const SKILLS = [
   {
     category: 'Color Grading & Finishing',
     items: [
-      { name: 'ACES Color Management', level: 'Master', desc: 'Cross-camera color consistency (ACEScc / ACEScct)' },
+      { name: 'Color Space Management', level: 'Master', desc: 'Cross-camera color consistency & wide-gamut finishing' },
       { name: 'Film Emulation & Halation', level: 'Expert', desc: 'Kodak 5219/2383 photochemical emulation' },
       { name: 'HDR & SDR Cinema Mastering', level: 'Expert', desc: 'DCI-P3, Rec.709 & Rec.2020 workflows' },
       { name: 'Color Match & Scene Continuity', level: 'Master', desc: 'Skin tone tracking & shot-to-shot balancing' },
@@ -22,8 +22,8 @@ export const SKILLS = [
     category: 'Post-Production Pipeline & Storycraft',
     items: [
       { name: 'Editorial Storycraft & Pacing', level: 'Master', desc: 'Visual storytelling, scene rhythm & narrative arcs' },
-      { name: 'Cinema Camera Pipelines', level: 'Expert', desc: 'ARRI Alexa LF, RED V-Raptor, Sony Venice' },
-      { name: 'Anamorphic Lens Workflows', level: 'Expert', desc: 'De-squeeze monitoring & flare management' },
+      { name: 'Multi-Camera Cinema Ingest', level: 'Expert', desc: 'High-resolution cinema RAW rushes & proxy workflows' },
+      { name: 'Aspect Ratio & Framing Mastery', level: 'Expert', desc: 'Anamorphic 2.39:1, 16:9 & vertical 9:16 deliverables' },
       { name: 'Sound Design & Stems Balancing', level: 'Advanced', desc: 'Foley, soundscape layering & loudness standards' },
     ]
   }
@@ -100,23 +100,20 @@ export const EXPERIENCES = [
     period: '2022 — Present',
     role: 'Lead Cinematic Video Editor & Colorist',
     company: 'Regar Cinematic Studio',
-    location: 'Mumbai & Remote Worldwide',
     description: 'Leading post-production editing for commercial spots, luxury fashion reels, narrative shorts, and music videos for international production agencies and brands.',
-    highlights: ['Cut and finished 20+ commercial projects for global clients', 'Mastered color grading pipelines for 8K RED and ARRI raw rushes']
+    highlights: ['Cut and finished 20+ commercial projects for global clients', 'Mastered color grading pipelines for 8K multi-camera raw rushes']
   },
   {
     period: '2019 — 2022',
     role: 'Senior Commercial Video Editor',
     company: 'BlackFrame Digital Post',
-    location: 'Mumbai, India',
     description: 'Led post-production editorial teams for national automotive and FMCG television commercials. Managed offline-to-online finishing and client screening sessions.',
-    highlights: ['Cut 40+ national broadcast commercials', 'Pioneered in-house ACES color management workflows']
+    highlights: ['Cut 40+ national broadcast commercials', 'Pioneered in-house color management and editorial workflows']
   },
   {
     period: '2017 — 2019',
     role: 'Assistant Editor & Junior Colorist',
     company: 'Prime Cuts Studio',
-    location: 'Mumbai, India',
     description: 'Handling dailies ingestion, proxy generation, rough assembly, audio sync, and basic grade passes on indie feature films and documentary projects.',
     highlights: ['Supported post-production on 3 festival-selected feature films', 'Specialized in multi-camera sync and project conforming']
   }

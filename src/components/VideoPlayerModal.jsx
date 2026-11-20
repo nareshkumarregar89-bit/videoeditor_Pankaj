@@ -129,7 +129,7 @@ export default function VideoPlayerModal() {
             </div>
             <div className="flex justify-between font-meta-timecode text-[9px] sm:text-[10px] text-on-surface-variant">
               <span className="bg-black/60 px-1.5 py-0.5 rounded backdrop-blur">
-                LUT: {activeFilm.lut || 'ARRI_709_KODAK2383_OFF'}
+                LUT: {activeFilm.lut || 'REC709_KODAK2383_PRINT'}
               </span>
               <span className="bg-black/60 px-1.5 py-0.5 rounded backdrop-blur">
                 {activeFilm.audio || 'DOLBY ATMOS 5.1 CH'}

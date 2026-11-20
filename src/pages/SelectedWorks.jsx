@@ -60,7 +60,7 @@ export default function SelectedWorks() {
               </h1>
             </div>
             <p className="font-body-md text-sm sm:text-body-md text-on-surface-variant max-w-md">
-              Commercials, narrative shorts, automotive anthems, and visceral montage edits crafted across ARRI Alexa LF, RED V-Raptor, and photochemical film scan pipelines.
+              Commercials, narrative shorts, automotive anthems, and visceral montage edits crafted across cinema raw and photochemical film scan pipelines.
             </p>
           </div>
 
@@ -98,7 +98,7 @@ export default function SelectedWorks() {
               </span>
             </div>
             <span className="font-label-code text-[11px] text-secondary tracking-widest hidden md:inline">
-              ARRI ALEXA LF • 2.39:1 ANAMORPHIC
+              CINEMA MASTER • 2.39:1 ANAMORPHIC
             </span>
           </div>
 
@@ -118,7 +118,7 @@ export default function SelectedWorks() {
             <div className="absolute inset-0 bg-gradient-to-r from-surface-container-lowest/80 via-transparent to-surface-container-lowest/60"></div>
             <div className="scanlines absolute inset-0 opacity-20"></div>
 
-            {/* ARRI Crosshair Frame Guides */}
+            {/* Cinema Crosshair Frame Guides */}
             <div className="absolute inset-4 md:inset-8 pointer-events-none flex flex-col justify-between opacity-70">
               <div className="flex justify-between font-meta-timecode text-[10px] text-primary">
                 <span className="bg-black/60 px-2 py-0.5 rounded backdrop-blur">[ SAFE 90% ]</span>

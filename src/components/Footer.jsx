@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Film, ArrowUp } from 'lucide-react';
 
 export default function Footer() {
@@ -34,14 +35,14 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Nav links */}
+          {/* Multi-page Nav Links (NO Admin Link) */}
           <div className="flex flex-wrap items-center justify-center gap-6 text-sm text-zinc-600 font-medium">
-            <a href="#works" className="hover:text-zinc-950 transition-colors">Works</a>
-            <a href="#about" className="hover:text-zinc-950 transition-colors">About</a>
-            <a href="#services" className="hover:text-zinc-950 transition-colors">Services</a>
-            <a href="#toolkit" className="hover:text-zinc-950 transition-colors">Toolkit</a>
-            <a href="#experience" className="hover:text-zinc-950 transition-colors">Experience</a>
-            <a href="#contact" className="hover:text-zinc-950 transition-colors">Contact</a>
+            <Link to="/" className="hover:text-zinc-950 transition-colors">Home</Link>
+            <Link to="/works" className="hover:text-zinc-950 transition-colors">Works</Link>
+            <Link to="/about" className="hover:text-zinc-950 transition-colors">About</Link>
+            <Link to="/services" className="hover:text-zinc-950 transition-colors">Services</Link>
+            <Link to="/experience" className="hover:text-zinc-950 transition-colors">Experience</Link>
+            <Link to="/contact" className="hover:text-zinc-950 transition-colors">Contact</Link>
           </div>
 
           {/* Back to top */}
@@ -74,7 +75,7 @@ export default function Footer() {
           </div>
 
           <p className="flex items-center gap-1">
-            Built for Cinematic Showcase
+            Built for Cinematic Portfolio Showcase
           </p>
         </div>
       </div>
