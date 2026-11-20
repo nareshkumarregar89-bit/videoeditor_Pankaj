@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>Pankaj Regar — Contact &amp; Directorial Project Booking</title>
+  <meta name="description" content="Directorial dispatch booking form, agency representations, studio dossier, and production consultation with Pankaj Regar."/>
+
+  <!-- Google Fonts: Epilogue, Hanken Grotesk, Space Mono, Material Symbols -->
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@400;500;600;700&family=Hanken+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+
+  <!-- Tailwind CDN with Config -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "surface": "#300012",
+            "surface-dim": "#300012",
+            "surface-bright": "#730836",
+            "surface-container-lowest": "#26000d",
+            "surface-container-low": "#3f0019",
+            "surface-container": "#46001d",
+            "surface-container-high": "#5a0027",
+            "surface-container-highest": "#6d0231",
+            "on-surface": "#ffd9e0",
+            "on-surface-variant": "#c4c7c7",
+            "inverse-surface": "#ffd9e0",
+            "inverse-on-surface": "#66002d",
+            "outline": "#8e9192",
+            "outline-variant": "#444748",
+            "primary": "#cac9c9",
+            "primary-container": "#aeaeae",
+            "on-primary": "#2f3131",
+            "on-primary-container": "#414242",
+            "primary-fixed": "#e3e2e2",
+            "primary-fixed-dim": "#c7c6c6",
+            "secondary": "#afc9ea",
+            "secondary-container": "#2f4864",
+            "on-secondary": "#17324d",
+            "on-secondary-container": "#9eb7d8",
+            "secondary-fixed": "#d1e4ff",
+            "secondary-fixed-dim": "#afc9ea",
+            "tertiary": "#c9c9c9",
+            "error": "#ffb4ab",
+            "error-container": "#93000a",
+            "on-error": "#690005"
+          },
+          spacing: {
+            "gutter": "1.5rem",
+            "margin": "4rem",
+            "space-xs": "0.25rem",
+            "space-sm": "0.5rem",
+            "space-md": "1rem",
+            "space-lg": "2rem",
+            "space-xl": "4rem"
+          },
+          fontFamily: {
+            "headline-xl": ["Epilogue", "sans-serif"],
+            "headline-lg": ["Epilogue", "sans-serif"],
+            "headline-md": ["Epilogue", "sans-serif"],
+            "display-hero": ["Epilogue", "sans-serif"],
+            "body-lg": ["Hanken Grotesk", "sans-serif"],
+            "body-md": ["Hanken Grotesk", "sans-serif"],
+            "body-sm": ["Hanken Grotesk", "sans-serif"],
+            "label-caps": ["Hanken Grotesk", "sans-serif"],
+            "label-code": ["Space Mono", "monospace"],
+            "meta-timecode": ["Space Mono", "monospace"]
+          }
+        }
+      }
+    };
+  </script>
+
+  <!-- Custom Cinematic Stylesheet -->
+  <link rel="stylesheet" href="assets/css/style.css"/>
+</head>
+
+<body class="bg-surface text-on-surface antialiased selection:bg-surface-container-highest selection:text-on-surface">
+  <div class="film-grain"></div>
+
+  <!-- Unified Cinematic Header -->
+  <header class="fixed top-0 left-0 w-full z-50 glass-nav shadow-[0_1px_8px_rgba(0,0,0,0.6)]">
+    <div class="h-20 w-full px-4 sm:px-gutter flex items-center justify-between">
+      <!-- Directorial Brand Monogram -->
+      <a class="flex flex-col group" href="index.html">
+        <span class="font-headline-md text-xl sm:text-2xl uppercase tracking-wider text-on-surface group-hover:text-primary transition-colors">Pankaj Regar</span>
+        <span class="font-meta-timecode text-[10px] text-on-surface-variant tracking-[0.2em] uppercase">Director &amp; Film Editor</span>
+      </a>
+
+      <!-- Desktop Navigation Bar -->
+      <nav class="hidden xl:flex items-center gap-space-xs p-1 bg-surface-container-lowest/80 border border-white/5 rounded">
+        <a class="px-3 py-1.5 font-label-caps text-[11px] uppercase tracking-wider rounded text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-all" href="index.html">Selected Works</a>
+        <a class="px-3 py-1.5 font-label-caps text-[11px] uppercase tracking-wider rounded text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-all" href="about.html">About &amp; Pipeline</a>
+        <a class="px-3 py-1.5 font-label-caps text-[11px] uppercase tracking-wider rounded text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-all" href="services.html">Services &amp; Rates</a>
+        <a class="px-3 py-1.5 font-label-caps text-[11px] uppercase tracking-wider rounded bg-surface-container-high text-on-surface font-semibold" href="contact.html">Contact &amp; Booking</a>
+      </nav>
+
+      <!-- Status Indicator & Actions -->
+      <div class="flex items-center gap-space-sm sm:gap-space-md">
+        <!-- Live Availability Pill -->
+        <div class="hidden sm:flex items-center gap-1.5 px-2.5 py-1 bg-surface-container-lowest rounded border border-white/5">
+          <span class="w-2 h-2 rounded-full bg-secondary animate-pulse"></span>
+          <span class="font-meta-timecode text-[10px] text-secondary tracking-widest uppercase">Available Q2-Q4</span>
+        </div>
+
+        <!-- Studio CMS Trigger -->
+        <button onclick="openStudioCMS()" class="hidden md:inline-flex items-center px-2 py-1 text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low transition-colors font-label-code text-[11px] uppercase tracking-wider rounded border border-white/5 cursor-pointer">
+          <span class="material-symbols-outlined text-[15px] mr-1 text-secondary">dashboard</span>Studio CMS
+        </button>
+
+        <!-- Start A Project Button -->
+        <a class="inline-flex items-center justify-center px-3.5 sm:px-space-md py-1.5 bg-primary-container text-on-primary hover:bg-secondary hover:text-on-secondary transition-all font-label-caps text-[11px] uppercase tracking-widest font-semibold rounded-full shadow-md" href="contact.html">
+          Start A Project
+        </a>
+
+        <!-- Profile Avatar -->
+        <div class="hidden sm:flex items-center pl-1">
+          <img alt="Pankaj Regar Profile" class="w-8 h-8 rounded-full object-cover border border-secondary/30" src="assets/images/pankaj_regar_portrait.jpg"/>
+        </div>
+
+        <!-- Mobile Menu Toggle Button -->
+        <button onclick="toggleMobileMenu()" aria-label="Toggle Navigation" class="xl:hidden w-9 h-9 flex items-center justify-center rounded bg-surface-container text-on-surface hover:bg-surface-container-high transition-colors">
+          <span class="material-symbols-outlined text-xl">menu</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Drawer Menu -->
+    <div id="mobile-drawer" class="hidden opacity-0 -translate-y-4 transition-all duration-200 xl:hidden w-full bg-surface-container-lowest border-b border-white/10 px-4 py-4 flex flex-col gap-2">
+      <a class="px-3 py-2 font-label-caps text-xs uppercase tracking-wider rounded text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-all" href="index.html">Selected Works</a>
+      <a class="px-3 py-2 font-label-caps text-xs uppercase tracking-wider rounded text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-all" href="about.html">About &amp; Pipeline</a>
+      <a class="px-3 py-2 font-label-caps text-xs uppercase tracking-wider rounded text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-all" href="services.html">Services &amp; Rates</a>
+      <a class="px-3 py-2 font-label-caps text-xs uppercase tracking-wider rounded bg-surface-container-high text-on-surface font-semibold" href="contact.html">Contact &amp; Booking</a>
+      <div class="pt-2 border-t border-white/5 flex items-center justify-between text-xs font-meta-timecode text-on-surface-variant">
+        <span class="live-smpte-tc">TC 01:24:18:04</span>
+        <button onclick="openStudioCMS()" class="text-secondary flex items-center gap-1">
+          <span class="material-symbols-outlined text-sm">dashboard</span> Studio CMS
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Booking Dispatch Form & Coordinates -->
+  <main class="w-full pt-20 bg-surface min-h-screen">
+    <div class="flex flex-col w-full">
+
+      <!-- Header Banner & Title -->
+      <section class="w-full px-4 sm:px-gutter pt-8 pb-4">
+        <div class="max-w-7xl mx-auto flex flex-col gap-2">
+          <div class="flex items-center gap-2">
+            <span class="w-2 h-2 rounded-full bg-secondary"></span>
+            <span class="font-meta-timecode text-xs text-secondary uppercase tracking-[0.25em] font-bold">PROJECT TRANSMISSION // DIRECTORIAL DISPATCH</span>
+          </div>
+          <h1 class="font-headline-xl text-3xl sm:text-5xl text-on-surface uppercase tracking-tight font-semibold">Initiate Production Brief</h1>
+          <p class="font-body-md text-sm sm:text-base text-on-surface-variant max-w-2xl">
+            Booking lead editorial direction, offline commercial montage, and master ACES color passes for late Q2 through Q4 2026.
+          </p>
+        </div>
+      </section>
+
+      <!-- Main Layout: Form (8 cols) & Studio Dossier (4 cols) -->
+      <section class="w-full px-4 sm:px-gutter py-8">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+
+          <!-- LEFT COLUMN: Directorial Dispatch Interactive Form (8 cols) -->
+          <div class="lg:col-span-8 flex flex-col bg-surface-container-low rounded-xl p-6 sm:p-8 shadow-2xl relative overflow-hidden border border-white/5">
+            <div class="flex items-center justify-between pb-3 mb-6 bg-surface-container px-4 py-2.5 rounded border border-white/5">
+              <div class="flex items-center gap-2 font-label-code text-xs text-primary uppercase font-bold">
+                <span class="material-symbols-outlined text-base text-secondary">tune</span>
+                <span>DIRECTORIAL DISPATCH • FORM VER 4.8</span>
+              </div>
+              <div class="font-meta-timecode text-xs text-on-surface-variant uppercase live-smpte-tc">
+                TC 00:00:24:19
+              </div>
+            </div>
+
+            <form class="flex flex-col gap-6" id="booking-form">
+              <!-- Identity Fields -->
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div class="flex flex-col gap-1.5">
+                  <label class="font-label-caps text-xs uppercase text-on-surface-variant tracking-wider flex items-center justify-between">
+                    <span>01. Agency / Production Company</span>
+                    <span class="text-secondary font-meta-timecode font-bold">*REQ</span>
+                  </label>
+                  <input class="w-full bg-surface-container px-4 py-3 font-body-md text-sm text-on-surface placeholder:text-on-surface-variant/40 rounded border border-white/5 focus:outline-none focus:border-secondary transition-colors" placeholder="e.g. Somesuch / Wieden+Kennedy" required type="text"/>
+                </div>
+                <div class="flex flex-col gap-1.5">
+                  <label class="font-label-caps text-xs uppercase text-on-surface-variant tracking-wider flex items-center justify-between">
+                    <span>02. Producer or Creative Lead</span>
+                    <span class="text-secondary font-meta-timecode font-bold">*REQ</span>
+                  </label>
+                  <input class="w-full bg-surface-container px-4 py-3 font-body-md text-sm text-on-surface placeholder:text-on-surface-variant/40 rounded border border-white/5 focus:outline-none focus:border-secondary transition-colors" placeholder="Full Name &amp; Role" required type="text"/>
+                </div>
+              </div>
+
+              <!-- Comms Fields -->
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div class="flex flex-col gap-1.5">
+                  <label class="font-label-caps text-xs uppercase text-on-surface-variant tracking-wider flex items-center justify-between">
+                    <span>03. Direct Email Address</span>
+                    <span class="text-secondary font-meta-timecode font-bold">*REQ</span>
+                  </label>
+                  <input class="w-full bg-surface-container px-4 py-3 font-body-md text-sm text-on-surface placeholder:text-on-surface-variant/40 rounded border border-white/5 focus:outline-none focus:border-secondary transition-colors" placeholder="producer@agency.com" required type="email"/>
+                </div>
+                <div class="flex flex-col gap-1.5">
+                  <label class="font-label-caps text-xs uppercase text-on-surface-variant tracking-wider">
+                    <span>04. WhatsApp / Phone / Signal</span>
+                  </label>
+                  <input class="w-full bg-surface-container px-4 py-3 font-body-md text-sm text-on-surface placeholder:text-on-surface-variant/40 rounded border border-white/5 focus:outline-none focus:border-secondary transition-colors" placeholder="+44 / +91 / +1 (Direct contact)" type="tel"/>
+                </div>
+              </div>
+
+              <!-- Project Type Selector -->
+              <div class="flex flex-col gap-2">
+                <label class="font-label-caps text-xs uppercase text-on-surface-variant tracking-wider">
+                  <span>05. Project Classification</span>
+                </label>
+                <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-2">
+                  <label class="relative flex flex-col items-center justify-center p-3 bg-surface-container rounded hover:bg-surface-container-high cursor-pointer transition-all border border-white/5 has-[:checked]:bg-secondary-container has-[:checked]:border-secondary has-[:checked]:text-on-secondary-container">
+                    <input checked class="sr-only" name="project_type" type="radio" value="Commercial"/>
+                    <span class="material-symbols-outlined text-xl mb-1">movie_filter</span>
+                    <span class="font-label-code text-[11px] uppercase tracking-wider text-center">Commercial</span>
+                  </label>
+                  <label class="relative flex flex-col items-center justify-center p-3 bg-surface-container rounded hover:bg-surface-container-high cursor-pointer transition-all border border-white/5 has-[:checked]:bg-secondary-container has-[:checked]:border-secondary has-[:checked]:text-on-secondary-container">
+                    <input class="sr-only" name="project_type" type="radio" value="Music Video"/>
+                    <span class="material-symbols-outlined text-xl mb-1">audiotrack</span>
+                    <span class="font-label-code text-[11px] uppercase tracking-wider text-center">Music Video</span>
+                  </label>
+                  <label class="relative flex flex-col items-center justify-center p-3 bg-surface-container rounded hover:bg-surface-container-high cursor-pointer transition-all border border-white/5 has-[:checked]:bg-secondary-container has-[:checked]:border-secondary has-[:checked]:text-on-secondary-container">
+                    <input class="sr-only" name="project_type" type="radio" value="Documentary"/>
+                    <span class="material-symbols-outlined text-xl mb-1">camera</span>
+                    <span class="font-label-code text-[11px] uppercase tracking-wider text-center">Documentary</span>
+                  </label>
+                  <label class="relative flex flex-col items-center justify-center p-3 bg-surface-container rounded hover:bg-surface-container-high cursor-pointer transition-all border border-white/5 has-[:checked]:bg-secondary-container has-[:checked]:border-secondary has-[:checked]:text-on-secondary-container">
+                    <input class="sr-only" name="project_type" type="radio" value="Fashion Film"/>
+                    <span class="material-symbols-outlined text-xl mb-1">styler</span>
+                    <span class="font-label-code text-[11px] uppercase tracking-wider text-center">Fashion Film</span>
+                  </label>
+                  <label class="relative flex flex-col items-center justify-center p-3 bg-surface-container rounded hover:bg-surface-container-high cursor-pointer transition-all border border-white/5 has-[:checked]:bg-secondary-container has-[:checked]:border-secondary has-[:checked]:text-on-secondary-container">
+                    <input class="sr-only" name="project_type" type="radio" value="Other"/>
+                    <span class="material-symbols-outlined text-xl mb-1">more_horiz</span>
+                    <span class="font-label-code text-[11px] uppercase tracking-wider text-center">Narrative / Ep</span>
+                  </label>
+                </div>
+              </div>
+
+              <!-- Timeline & Budget -->
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div class="flex flex-col gap-1.5">
+                  <label class="font-label-caps text-xs uppercase text-on-surface-variant tracking-wider">
+                    <span>06. Target Delivery / Premiere Window</span>
+                  </label>
+                  <input class="w-full bg-surface-container px-4 py-3 font-body-md text-sm text-on-surface placeholder:text-on-surface-variant/40 rounded border border-white/5 focus:outline-none focus:border-secondary transition-colors" placeholder="e.g. Q3 2026 / Mid-September Cut Lock" type="text"/>
+                </div>
+                <div class="flex flex-col gap-1.5">
+                  <label class="font-label-caps text-xs uppercase text-on-surface-variant tracking-wider">
+                    <span>07. Estimated Production Budget Tier</span>
+                  </label>
+                  <div class="grid grid-cols-3 gap-2">
+                    <label class="flex flex-col items-center justify-center p-2.5 bg-surface-container rounded hover:bg-surface-container-high cursor-pointer border border-white/5 has-[:checked]:bg-secondary-container has-[:checked]:border-secondary has-[:checked]:text-on-secondary-container">
+                      <input class="sr-only" name="budget_tier" type="radio" value="$5k-$15k"/>
+                      <span class="font-label-code text-xs font-bold">$5k – $15k</span>
+                      <span class="font-meta-timecode text-[9px] text-on-surface-variant">Post/Edit Only</span>
+                    </label>
+                    <label class="flex flex-col items-center justify-center p-2.5 bg-surface-container rounded hover:bg-surface-container-high cursor-pointer border border-white/5 has-[:checked]:bg-secondary-container has-[:checked]:border-secondary has-[:checked]:text-on-secondary-container">
+                      <input checked class="sr-only" name="budget_tier" type="radio" value="$15k-$30k"/>
+                      <span class="font-label-code text-xs font-bold">$15k – $30k</span>
+                      <span class="font-meta-timecode text-[9px] text-on-surface-variant">Mid Commercial</span>
+                    </label>
+                    <label class="flex flex-col items-center justify-center p-2.5 bg-surface-container rounded hover:bg-surface-container-high cursor-pointer border border-white/5 has-[:checked]:bg-secondary-container has-[:checked]:border-secondary has-[:checked]:text-on-secondary-container">
+                      <input class="sr-only" name="budget_tier" type="radio" value="$30k+"/>
+                      <span class="font-label-code text-xs font-bold">$30k+</span>
+                      <span class="font-meta-timecode text-[9px] text-on-surface-variant">Full Production</span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Brief / Cloud Link -->
+              <div class="flex flex-col gap-1.5">
+                <label class="font-label-caps text-xs uppercase text-on-surface-variant tracking-wider flex items-center justify-between">
+                  <span>08. Treatment / Deck / Dropbox / Notion Link</span>
+                  <span class="font-meta-timecode text-[10px] text-on-surface-variant">PWD-PROTECTED PREFERRED</span>
+                </label>
+                <div class="relative flex items-center">
+                  <span class="material-symbols-outlined absolute left-3 text-on-surface-variant text-lg">link</span>
+                  <input class="w-full bg-surface-container pl-10 pr-4 py-3 font-body-md text-sm text-on-surface placeholder:text-on-surface-variant/40 rounded border border-white/5 focus:outline-none focus:border-secondary transition-colors" placeholder="https://notion.so/... or https://dropbox.com/s/..." type="url"/>
+                </div>
+              </div>
+
+              <!-- Project Vision Textarea -->
+              <div class="flex flex-col gap-1.5">
+                <label class="font-label-caps text-xs uppercase text-on-surface-variant tracking-wider flex items-center justify-between">
+                  <span>09. Creative Vision, Tone &amp; Director Expectations</span>
+                  <span class="text-secondary font-meta-timecode font-bold">*REQ</span>
+                </label>
+                <textarea class="w-full bg-surface-container p-4 font-body-md text-sm text-on-surface placeholder:text-on-surface-variant/40 rounded border border-white/5 focus:outline-none focus:border-secondary transition-colors" placeholder="Outline the narrative arc, visual references, pacing expectations, soundtrack concept, or intended color profile..." required rows="4"></textarea>
+              </div>
+
+              <!-- Production Protocol Checklist -->
+              <div class="flex flex-wrap items-center justify-between gap-3 bg-surface-container p-3.5 rounded border border-white/5">
+                <label class="flex items-center gap-2 cursor-pointer">
+                  <input checked class="w-4 h-4 rounded bg-surface-container-lowest text-secondary focus:ring-0" type="checkbox"/>
+                  <span class="font-meta-timecode text-[10px] sm:text-xs text-on-surface uppercase">Direct Non-Disclosure Agreement (NDA) on file prior to review</span>
+                </label>
+                <span class="font-meta-timecode text-[10px] text-on-surface-variant uppercase">SECURITY: AES-256</span>
+              </div>
+
+              <!-- Submission Action Bar -->
+              <div class="flex flex-col sm:flex-row items-center justify-between gap-4 pt-2 border-t border-white/5">
+                <div class="flex items-center gap-2">
+                  <span class="w-2 h-2 rounded-full bg-secondary animate-pulse"></span>
+                  <span class="font-meta-timecode text-[10px] text-on-surface-variant uppercase tracking-widest">
+                    DIRECT TO CUTTING ROOM PAGER
+                  </span>
+                </div>
+                <button class="w-full sm:w-auto px-8 py-3.5 bg-primary-container text-on-primary hover:bg-secondary hover:text-on-secondary transition-all font-label-caps text-xs uppercase tracking-widest font-semibold rounded flex items-center justify-center gap-2 shadow-xl cursor-pointer" type="submit">
+                  <span>SEND DIRECTORIAL BRIEF</span>
+                  <span class="material-symbols-outlined text-base">arrow_forward</span>
+                </button>
+              </div>
+            </form>
+
+            <!-- Form Success State -->
+            <div class="hidden flex-col items-center justify-center py-12 text-center" id="success-state">
+              <div class="w-16 h-16 rounded-full bg-secondary-container flex items-center justify-center text-on-secondary-container mb-4 shadow-xl border border-secondary/30">
+                <span class="material-symbols-outlined text-3xl text-secondary">check</span>
+              </div>
+              <h3 class="font-headline-md text-2xl uppercase text-on-surface mb-2 font-semibold">Directorial Brief Transmitted</h3>
+              <p class="font-meta-timecode text-xs text-secondary tracking-widest uppercase mb-2" id="generated-ref-id">
+                LOG REFERENCE // DISPATCH-REF #PR-9482
+              </p>
+              <p class="font-body-md text-sm text-primary max-w-md mx-auto mb-6 leading-relaxed">
+                Log reference assigned. Pankaj or blackframe exec management will respond within 12 hours with availability slate &amp; call confirmation.
+              </p>
+              <button class="px-6 py-2.5 bg-surface-container text-on-surface hover:bg-surface-container-high font-label-code text-xs uppercase tracking-wider rounded border border-white/5 cursor-pointer" onclick="document.getElementById('booking-form').reset(); document.getElementById('booking-form').classList.remove('hidden'); document.getElementById('success-state').classList.add('hidden');">
+                Transmit Another Record
+              </button>
+            </div>
+          </div>
+
+          <!-- RIGHT COLUMN: Direct Studio Dossier & Coordinates (4 cols) -->
+          <div class="lg:col-span-4 flex flex-col gap-6">
+
+            <!-- Live Suite Card -->
+            <div class="bg-surface-container-low p-6 rounded-xl flex flex-col gap-3 shadow-md border border-white/5">
+              <div class="flex items-center justify-between pb-2 border-b border-white/5">
+                <span class="font-label-caps text-xs uppercase text-secondary tracking-widest font-bold">TRANSMISSION CHANNELS</span>
+                <span class="w-2 h-2 rounded-full bg-secondary animate-pulse"></span>
+              </div>
+              <div class="flex flex-col gap-1 bg-surface-container p-3 rounded border border-white/5">
+                <span class="font-meta-timecode text-[10px] text-on-surface-variant uppercase font-bold">Direct Inquiries</span>
+                <a class="font-label-code text-xs text-on-surface hover:text-secondary transition-colors font-medium" href="mailto:contact@pankajregar.com">contact@pankajregar.com</a>
+              </div>
+              <div class="flex flex-col gap-1 bg-surface-container p-3 rounded border border-white/5">
+                <span class="font-meta-timecode text-[10px] text-on-surface-variant uppercase font-bold">Bookings &amp; Agency Slate</span>
+                <a class="font-label-code text-xs text-on-surface hover:text-secondary transition-colors font-medium" href="mailto:bookings@pankajregar.com">bookings@pankajregar.com</a>
+              </div>
+              <div class="flex flex-col gap-1 bg-surface-container p-3 rounded border border-white/5">
+                <span class="font-meta-timecode text-[10px] text-on-surface-variant uppercase font-bold">Typical Latency</span>
+                <span class="font-body-md text-xs text-primary">&lt; 12 Hours (Commercial priority)</span>
+              </div>
+            </div>
+
+            <!-- Global Footprint & Representation -->
+            <div class="bg-surface-container-low p-6 rounded-xl flex flex-col gap-3 shadow-md border border-white/5">
+              <span class="font-label-caps text-xs uppercase text-on-surface-variant tracking-widest font-bold">DEPLOYMENT &amp; RESIDENCY</span>
+              <div class="flex flex-col gap-3 pt-1">
+                <div class="flex items-start gap-2.5">
+                  <span class="material-symbols-outlined text-secondary text-lg mt-0.5">location_on</span>
+                  <div class="flex flex-col">
+                    <span class="font-label-code text-xs text-on-surface font-semibold">New Delhi Studio / Post Suite</span>
+                    <span class="font-meta-timecode text-[10px] text-on-surface-variant">IST (UTC +5:30) • Physical Grading Rig</span>
+                  </div>
+                </div>
+                <div class="flex items-start gap-2.5">
+                  <span class="material-symbols-outlined text-secondary text-lg mt-0.5">public</span>
+                  <div class="flex flex-col">
+                    <span class="font-label-code text-xs text-on-surface font-semibold">London / Europe Satellite</span>
+                    <span class="font-meta-timecode text-[10px] text-on-surface-variant">GMT/BST • Production Liaison</span>
+                  </div>
+                </div>
+                <div class="flex items-start gap-2.5">
+                  <span class="material-symbols-outlined text-secondary text-lg mt-0.5">flight_takeoff</span>
+                  <div class="flex flex-col">
+                    <span class="font-label-code text-xs text-on-surface font-semibold">On-Set DIT / Directorial Flyout</span>
+                    <span class="font-meta-timecode text-[10px] text-on-surface-variant">Worldwide deployment on 48h notice</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Direct Social & Registry Links -->
+            <div class="bg-surface-container-low p-6 rounded-xl flex flex-col gap-3 shadow-md border border-white/5">
+              <span class="font-label-caps text-xs uppercase text-on-surface-variant tracking-widest font-bold">DIRECTORIAL CHANNELS</span>
+              <div class="grid grid-cols-2 gap-2 pt-1">
+                <a class="flex items-center justify-between p-2.5 bg-surface-container hover:bg-surface-container-high rounded text-on-surface transition-colors border border-white/5" href="https://vimeo.com" target="_blank" rel="noreferrer">
+                  <span class="font-label-code text-[11px] uppercase">Vimeo Pro</span>
+                  <span class="material-symbols-outlined text-xs text-secondary">open_in_new</span>
+                </a>
+                <a class="flex items-center justify-between p-2.5 bg-surface-container hover:bg-surface-container-high rounded text-on-surface transition-colors border border-white/5" href="https://behance.net" target="_blank" rel="noreferrer">
+                  <span class="font-label-code text-[11px] uppercase">Behance</span>
+                  <span class="material-symbols-outlined text-xs text-secondary">open_in_new</span>
+                </a>
+                <a class="flex items-center justify-between p-2.5 bg-surface-container hover:bg-surface-container-high rounded text-on-surface transition-colors border border-white/5" href="https://linkedin.com" target="_blank" rel="noreferrer">
+                  <span class="font-label-code text-[11px] uppercase">LinkedIn</span>
+                  <span class="material-symbols-outlined text-xs text-secondary">open_in_new</span>
+                </a>
+                <a class="flex items-center justify-between p-2.5 bg-surface-container hover:bg-surface-container-high rounded text-on-surface transition-colors border border-white/5" href="https://instagram.com" target="_blank" rel="noreferrer">
+                  <span class="font-label-code text-[11px] uppercase">Instagram</span>
+                  <span class="material-symbols-outlined text-xs text-secondary">open_in_new</span>
+                </a>
+                <a class="col-span-2 flex items-center justify-between p-2.5 bg-surface-container hover:bg-surface-container-high rounded text-on-surface transition-colors border border-white/5" href="https://imdb.com" target="_blank" rel="noreferrer">
+                  <span class="font-label-code text-[11px] uppercase">IMDb Archive Profile</span>
+                  <span class="material-symbols-outlined text-xs text-secondary">open_in_new</span>
+                </a>
+              </div>
+            </div>
+
+            <!-- Cutting Room Image Snapshot -->
+            <div class="bg-surface-container-low rounded-xl overflow-hidden shadow-md border border-white/5">
+              <div class="relative w-full h-44">
+                <img class="w-full h-full object-cover" alt="Post Suite Monitor" src="assets/images/cutting_room_suite.jpg"/>
+                <div class="absolute inset-0 bg-gradient-to-t from-surface-container-low via-transparent to-transparent"></div>
+                <div class="absolute bottom-2 left-3 right-3 flex items-center justify-between font-meta-timecode text-[10px] uppercase text-on-surface">
+                  <span class="bg-black/60 px-2 py-0.5 rounded backdrop-blur">SUITE MONITOR // D65 CALIBRATION</span>
+                  <span class="text-secondary bg-black/60 px-2 py-0.5 rounded backdrop-blur">LIVE FEED</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- Client Testimonials & Endorsements Section -->
+      <section class="w-full px-4 sm:px-gutter py-16 border-t border-white/5">
+        <div class="max-w-7xl mx-auto flex flex-col gap-8">
+          <div class="flex items-center justify-between pb-2 border-b border-white/5">
+            <div class="flex items-center gap-2">
+              <span class="font-label-caps text-xs uppercase text-secondary tracking-widest font-bold">// COLLABORATOR DISPATCH</span>
+              <span class="font-meta-timecode text-xs text-on-surface-variant">[AGENCY &amp; STUDIO TESTIMONIALS]</span>
+            </div>
+            <span class="font-meta-timecode text-xs text-on-surface-variant hidden sm:inline">VERIFIED PROD LOGS 2024-2026</span>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <!-- Quote 1 -->
+            <div class="bg-surface-container-low p-6 rounded-xl flex flex-col justify-between shadow-md relative border border-white/5">
+              <div class="flex flex-col gap-2">
+                <span class="material-symbols-outlined text-secondary text-3xl">format_quote</span>
+                <p class="font-body-md text-sm text-primary italic leading-relaxed">
+                  “Pankaj approaches editorial rhythm with the mathematical discipline of an architect and the intuition of a poet. His cut gave our global automotive spot its hypnotic gravity.”
+                </p>
+              </div>
+              <div class="flex items-center gap-3 pt-4 mt-4 bg-surface-container px-3 py-2 rounded border border-white/5">
+                <div class="w-8 h-8 rounded bg-surface-container-high flex items-center justify-center font-label-code text-xs text-secondary font-bold">
+                  AK
+                </div>
+                <div class="flex flex-col">
+                  <span class="font-label-code text-xs text-on-surface font-semibold">Arjun Kapoor</span>
+                  <span class="font-meta-timecode text-[10px] text-on-surface-variant uppercase">Executive Producer • Blackline London</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Quote 2 -->
+            <div class="bg-surface-container-low p-6 rounded-xl flex flex-col justify-between shadow-md relative border border-white/5">
+              <div class="flex flex-col gap-2">
+                <span class="material-symbols-outlined text-secondary text-3xl">format_quote</span>
+                <p class="font-body-md text-sm text-primary italic leading-relaxed">
+                  “Turnaround was exceptional under an impossible 72-hour broadcast deadline. Pankaj preserved narrative coherence while elevating our brand look into high-concept cinema.”
+                </p>
+              </div>
+              <div class="flex items-center gap-3 pt-4 mt-4 bg-surface-container px-3 py-2 rounded border border-white/5">
+                <div class="w-8 h-8 rounded bg-surface-container-high flex items-center justify-center font-label-code text-xs text-secondary font-bold">
+                  EL
+                </div>
+                <div class="flex flex-col">
+                  <span class="font-label-code text-xs text-on-surface font-semibold">Elena Lindqvist</span>
+                  <span class="font-meta-timecode text-[10px] text-on-surface-variant uppercase">Creative Director • Nord House Berlin</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Quote 3 -->
+            <div class="bg-surface-container-low p-6 rounded-xl flex flex-col justify-between shadow-md relative border border-white/5">
+              <div class="flex flex-col gap-2">
+                <span class="material-symbols-outlined text-secondary text-3xl">format_quote</span>
+                <p class="font-body-md text-sm text-primary italic leading-relaxed">
+                  “Working with Pankaj on our artist's visual album was effortless. He has an innate pulse for sound sync and knows exactly when to hold a frame to let emotion land.”
+                </p>
+              </div>
+              <div class="flex items-center gap-3 pt-4 mt-4 bg-surface-container px-3 py-2 rounded border border-white/5">
+                <div class="w-8 h-8 rounded bg-surface-container-high flex items-center justify-center font-label-code text-xs text-secondary font-bold">
+                  VS
+                </div>
+                <div class="flex flex-col">
+                  <span class="font-label-code text-xs text-on-surface font-semibold">Vikram Sen</span>
+                  <span class="font-meta-timecode text-[10px] text-on-surface-variant uppercase">Head of Content • Sony Music Entertainment</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Studio CMS Client Portal Modal -->
+  <div class="fixed inset-0 z-50 bg-surface-container-lowest/95 backdrop-blur-xl flex items-center justify-center p-4 hidden opacity-0 transition-opacity duration-300" id="studio-cms-modal">
+    <div class="relative w-full max-w-md bg-surface-container-low rounded-xl p-6 shadow-2xl border border-white/10 flex flex-col gap-5">
+      <div class="flex items-center justify-between border-b border-white/5 pb-3">
+        <div class="flex items-center gap-2">
+          <span class="w-2.5 h-2.5 rounded-full bg-secondary animate-pulse"></span>
+          <span class="font-headline-md text-base uppercase text-on-surface font-semibold">Studio Dailies CMS</span>
+        </div>
+        <button onclick="closeStudioCMS()" class="w-7 h-7 rounded-full bg-surface-container hover:bg-surface-high flex items-center justify-center text-on-surface transition-colors cursor-pointer">
+          <span class="material-symbols-outlined text-[16px]">close</span>
+        </button>
+      </div>
+
+      <p class="font-body-sm text-xs text-on-surface-variant">
+        Enter your encrypted client review code or Frame.io project key to access secure uncompressed DCI dailies, proxy cuts, and timecode annotation passes.
+      </p>
+
+      <form onsubmit="event.preventDefault(); alert('Dailies Portal Authenticated: Welcome, somesuch / w+k production team.'); closeStudioCMS();" class="flex flex-col gap-3">
+        <div>
+          <label class="font-label-caps text-[10px] uppercase text-on-surface-variant tracking-wider block mb-1">Project Passcode / Token</label>
+          <input type="text" value="PR-2026-NOCTURN-CUT3" class="w-full bg-surface-container px-3 py-2 text-sm text-on-surface font-label-code rounded border border-white/10 focus:outline-none focus:border-secondary" required/>
+        </div>
+        <div>
+          <label class="font-label-caps text-[10px] uppercase text-on-surface-variant tracking-wider block mb-1">Production House Key</label>
+          <input type="password" value="••••••••••••" class="w-full bg-surface-container px-3 py-2 text-sm text-on-surface font-label-code rounded border border-white/10 focus:outline-none focus:border-secondary" required/>
+        </div>
+
+        <button type="submit" class="mt-2 w-full py-2.5 bg-primary-container hover:bg-secondary text-on-primary hover:text-on-secondary font-label-caps text-xs uppercase tracking-widest font-semibold rounded transition-colors flex items-center justify-center gap-2">
+          <span class="material-symbols-outlined text-sm">key</span> Decrypt &amp; Enter Suite
+        </button>
+      </form>
+
+      <div class="pt-2 border-t border-white/5 flex items-center justify-between font-meta-timecode text-[10px] text-on-surface-variant">
+        <span>SECURITY: AES-256 GCM</span>
+        <span>BLACKFRAME CMS V4.8</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Unified Footer -->
+  <footer class="w-full bg-surface-container-lowest py-12 border-t border-white/5">
+    <div class="max-w-7xl mx-auto px-4 sm:px-gutter flex flex-col gap-8">
+      <div class="flex flex-col md:flex-row items-start md:items-end justify-between gap-6">
+        <div class="flex flex-col gap-2 max-w-xl">
+          <span class="font-meta-timecode text-xs text-on-surface-variant tracking-[0.25em] uppercase font-bold">Directorial Suite &amp; Cutting Room</span>
+          <p class="font-headline-md text-xl sm:text-2xl text-on-surface leading-tight font-medium">Crafting high-impact cinematic grammar, long-form narratives, and commercial rhythm.</p>
+        </div>
+        <div class="flex flex-col items-start md:items-end gap-1">
+          <span class="font-label-caps text-xs uppercase text-on-surface-variant tracking-widest">Worldwide Commercial Rep</span>
+          <span class="font-body-md text-sm sm:text-base text-primary">Blackframe Executive Representation / London &amp; Mumbai</span>
+          <a class="font-label-code text-xs text-secondary hover:text-on-surface transition-colors" href="mailto:inquiries@pankajregar.film">inquiries@pankajregar.film</a>
+        </div>
+      </div>
+
+      <div class="flex flex-col md:flex-row items-center justify-between gap-4 pt-6 border-t border-white/5">
+        <span class="font-meta-timecode text-xs text-on-surface-variant tracking-wider live-smpte-tc">© 2026 PANKAJ REGAR. ALL RIGHTS RESERVED. TC 00:00:00:00</span>
+        <div class="flex items-center gap-6">
+          <a class="font-label-code text-xs text-on-surface-variant hover:text-secondary transition-colors uppercase" href="https://vimeo.com" target="_blank" rel="noreferrer">Vimeo Pro</a>
+          <a class="font-label-code text-xs text-on-surface-variant hover:text-secondary transition-colors uppercase" href="https://behance.net" target="_blank" rel="noreferrer">Behance</a>
+          <a class="font-label-code text-xs text-on-surface-variant hover:text-secondary transition-colors uppercase" href="https://linkedin.com" target="_blank" rel="noreferrer">LinkedIn</a>
+          <a class="font-label-code text-xs text-on-surface-variant hover:text-secondary transition-colors uppercase" href="https://instagram.com" target="_blank" rel="noreferrer">Instagram</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Main JavaScript Engine -->
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
