@@ -14,6 +14,7 @@ const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD || 'admin';
 
 // Directories
 const DATA_FILE = path.join(__dirname, 'data', 'projects.json');
+const INQUIRIES_FILE = path.join(__dirname, 'data', 'inquiries.json');
 const UPLOADS_DIR = path.join(__dirname, 'uploads');
 
 // Ensure uploads folder exists
@@ -70,6 +71,31 @@ function saveProjects(projects) {
     return true;
   } catch (err) {
     console.error('Error writing projects.json:', err);
+    return false;
+  }
+}
+
+// Helper: read inquiries
+function getInquiries() {
+  try {
+    if (!fs.existsSync(INQUIRIES_FILE)) {
+      return [];
+    }
+    const data = fs.readFileSync(INQUIRIES_FILE, 'utf-8');
+    return JSON.parse(data);
+  } catch (err) {
+    console.error('Error reading inquiries.json:', err);
+    return [];
+  }
+}
+
+// Helper: save inquiries
+function saveInquiries(inquiries) {
+  try {
+    fs.writeFileSync(INQUIRIES_FILE, JSON.stringify(inquiries, null, 2), 'utf-8');
+    return true;
+  } catch (err) {
+    console.error('Error writing inquiries.json:', err);
     return false;
   }
 }
@@ -183,6 +209,71 @@ app.post('/api/upload', requireAdmin, upload.single('image'), (req, res) => {
     url: fileUrl,
     filename: req.file.filename,
   });
+});
+
+// =================== INQUIRIES ROUTES =================== //
+
+// 7. Submit Inquiry (Public: Anyone from Contact form)
+app.post('/api/inquiries', (req, res) => {
+  const { name, email, projectType, budget, message } = req.body;
+  if (!name || !email || !message) {
+    return res.status(400).json({ error: 'Name, email, and message are required' });
+  }
+
+  const inquiries = getInquiries();
+  const newInquiry = {
+    id: `inq-${Date.now()}`,
+    name: name.trim(),
+    email: email.trim(),
+    projectType: projectType || 'Commercial / Brand Film',
+    budget: budget || 'Not specified',
+    message: message.trim(),
+    status: 'unread',
+    createdAt: new Date().toISOString(),
+  };
+
+  inquiries.unshift(newInquiry);
+  saveInquiries(inquiries);
+
+  console.log(`📬 New client inquiry from ${name} (${email}) for [${projectType}]`);
+  res.status(201).json({ success: true, message: 'Inquiry delivered to studio console', inquiry: newInquiry });
+});
+
+// 8. Get All Inquiries (Admin)
+app.get('/api/inquiries', requireAdmin, (req, res) => {
+  const inquiries = getInquiries();
+  res.json(inquiries);
+});
+
+// 9. Toggle Read/Unread (Admin)
+app.patch('/api/inquiries/:id/read', requireAdmin, (req, res) => {
+  const { id } = req.params;
+  const inquiries = getInquiries();
+  const item = inquiries.find((i) => i.id === id);
+
+  if (!item) {
+    return res.status(404).json({ error: 'Inquiry not found' });
+  }
+
+  item.status = item.status === 'read' ? 'unread' : 'read';
+  saveInquiries(inquiries);
+  res.json({ success: true, inquiry: item });
+});
+
+// 10. Delete Inquiry (Admin)
+app.delete('/api/inquiries/:id', requireAdmin, (req, res) => {
+  const { id } = req.params;
+  let inquiries = getInquiries();
+  const initialLength = inquiries.length;
+
+  inquiries = inquiries.filter((i) => i.id !== id);
+
+  if (inquiries.length === initialLength) {
+    return res.status(404).json({ error: 'Inquiry not found' });
+  }
+
+  saveInquiries(inquiries);
+  res.json({ success: true, message: 'Inquiry deleted' });
 });
 
 // Start Server

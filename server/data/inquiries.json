@@ -1,0 +1,22 @@
+[
+  {
+    "id": "inq-1718900000001",
+    "name": "Marcus Vance",
+    "email": "marcus@vancemedia.co",
+    "projectType": "Commercial / Brand Film",
+    "budget": "$15,000 — $30,000",
+    "message": "Hi Pankaj, we are producing a 60s global commercial for an upcoming EV performance vehicle. We need a lead cinematic editor with fast turnaround, pacing expertise, and DaVinci color grading finish. Rushes ready next week.",
+    "status": "unread",
+    "createdAt": "2026-11-20T14:30:00.000Z"
+  },
+  {
+    "id": "inq-1718900000002",
+    "name": "Elena Rostova",
+    "email": "elena@berlinrecords.de",
+    "projectType": "Music Video",
+    "budget": "$5,000 — $15,000",
+    "message": "Loved your cut on After Hours! We have a dark electronic indie music video shot on 35mm film stock in Berlin. Need dynamic match cuts and heavy film texture. Are you available in Q1 2027?",
+    "status": "read",
+    "createdAt": "2026-11-19T18:15:00.000Z"
+  }
+]

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Play, Clock, ArrowUpRight, Film, Sparkles } from 'lucide-react';
+import { Play, ArrowUpRight, Film } from 'lucide-react';
 
 export default function ProjectCard({ project, onSelect }) {
   if (!project) return null;
@@ -32,31 +32,6 @@ export default function ProjectCard({ project, onSelect }) {
         <div className="absolute top-3.5 left-3.5 z-10">
           <span className="px-3 py-1 rounded-full bg-white/95 backdrop-blur-md border border-zinc-200/80 text-[10px] font-bold text-zinc-900 uppercase tracking-widest shadow-sm">
             {project.categoryLabel || project.category}
-          </span>
-        </div>
-
-        {/* Top-Right: Editorial Badge */}
-        {project.badge && (
-          <div className="absolute top-3.5 right-3.5 z-10">
-            <span className="px-2.5 py-1 rounded-full bg-amber-500 text-zinc-950 text-[10px] font-bold uppercase tracking-wider shadow-sm flex items-center gap-1">
-              <Sparkles className="w-3 h-3 text-zinc-950" />
-              {project.badge}
-            </span>
-          </div>
-        )}
-
-        {/* Bottom-Left: Aspect Ratio Stamp */}
-        <div className="absolute bottom-3 left-3 z-10">
-          <span className="px-2.5 py-0.5 rounded-md bg-black/60 backdrop-blur-md border border-white/15 text-[10px] font-mono text-zinc-300">
-            {project.aspect || '2.39:1'}
-          </span>
-        </div>
-
-        {/* Bottom-Right: Duration Stamp */}
-        <div className="absolute bottom-3 right-3 z-10">
-          <span className="px-2.5 py-0.5 rounded-md bg-black/75 backdrop-blur-md border border-white/20 text-[10px] font-mono font-medium text-white flex items-center gap-1">
-            <Clock className="w-3 h-3 text-amber-400" />
-            {project.runtime}
           </span>
         </div>
       </div>

@@ -217,15 +217,6 @@ export default function HomePage({ onOpenShowreel, onSelectProject }) {
                       <Sparkles className="w-3 h-3 text-amber-600" />
                       Featured Master
                     </span>
-                    <span className="hidden sm:inline-flex px-3 py-1 rounded-full bg-white/90 backdrop-blur-md border border-zinc-200/50 text-xs font-medium text-zinc-700 shadow-sm">
-                      {featured.aspect}
-                    </span>
-                  </div>
-
-                  <div className="absolute top-4 right-4">
-                    <span className="px-3 py-1 rounded-full bg-black/60 backdrop-blur-md border border-white/20 text-xs font-mono text-white">
-                      {featured.runtime}
-                    </span>
                   </div>
 
                   <div className="absolute bottom-4 sm:bottom-6 left-4 sm:left-6 right-4 sm:right-6 flex flex-col sm:flex-row sm:items-end justify-between gap-2 text-white text-left">
