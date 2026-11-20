@@ -2,15 +2,19 @@
 export async function onRequest(context) {
   const url = new URL(context.request.url);
 
-  // Route API requests to their dedicated function handlers
-  if (url.pathname.startsWith('/api/')) {
+  // Never intercept API endpoints or static assets with file extensions
+  if (
+    url.pathname.startsWith('/api/') ||
+    url.pathname.startsWith('/assets/') ||
+    url.pathname.includes('.')
+  ) {
     return context.next();
   }
 
-  // Try fetching the static asset
-  const response = await context.env.ASSETS.fetch(context.request);
+  // Pass through to static files first
+  const response = await context.next();
 
-  // If asset not found (e.g. /works, /about, /services, /admin), serve index.html
+  // If route is a client-side route (e.g. /works, /about, /admin), fallback to index.html
   if (response.status === 404) {
     return context.env.ASSETS.fetch(
       new Request(new URL('/index.html', context.request.url), context.request)
