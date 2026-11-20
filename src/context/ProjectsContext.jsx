@@ -201,11 +201,24 @@ export function ProjectsProvider({ children }) {
   };
 
   // Reset to default catalogue
-  const resetToDefaults = () => {
-    if (window.confirm('Restore 7 default showcase projects? This will replace customized entries.')) {
+  const resetToDefaults = async () => {
+    if (window.confirm('Restore 7 default showcase projects? This will update the live portfolio for everyone.')) {
       setProjects(DEFAULT_PROJECTS);
-      localStorage.removeItem(STORAGE_KEY);
-      showToast('Projects reset to defaults.');
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(DEFAULT_PROJECTS));
+
+      try {
+        await fetch(`${API_BASE}/api/projects`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            Authorization: `Bearer ${token || 'studio-admin-token-2026'}`,
+          },
+          body: JSON.stringify(DEFAULT_PROJECTS),
+        });
+        showToast('Default projects restored in Cloudflare KV database.');
+      } catch (err) {
+        showToast('Projects reset locally.');
+      }
     }
   };
 

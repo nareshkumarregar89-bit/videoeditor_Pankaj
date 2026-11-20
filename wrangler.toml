@@ -1,0 +1,7 @@
+name = "pankajregar"
+pages_build_output_dir = "dist"
+compatibility_date = "2024-11-01"
+
+[[kv_namespaces]]
+binding = "PORTFOLIO_DB"
+id = "8a5796994e424dbca35ac55409f4aea0"
