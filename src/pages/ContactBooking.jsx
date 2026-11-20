@@ -463,25 +463,6 @@ export default function ContactBooking() {
               </div>
             </div>
 
-            {/* Cutting Room Image Snapshot */}
-            <div className="bg-surface-container-low rounded-xl overflow-hidden shadow-md border border-white/5">
-              <div className="relative w-full h-44">
-                <img
-                  className="w-full h-full object-cover"
-                  alt="Post Suite Monitor"
-                  src="/assets/images/cutting_room_suite.jpg"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-surface-container-low via-transparent to-transparent"></div>
-                <div className="absolute bottom-2 left-3 right-3 flex items-center justify-between font-meta-timecode text-[10px] uppercase text-on-surface">
-                  <span className="bg-black/60 px-2 py-0.5 rounded backdrop-blur">
-                    SUITE MONITOR // D65 CALIBRATION
-                  </span>
-                  <span className="text-secondary bg-black/60 px-2 py-0.5 rounded backdrop-blur">
-                    LIVE FEED
-                  </span>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
       </section>

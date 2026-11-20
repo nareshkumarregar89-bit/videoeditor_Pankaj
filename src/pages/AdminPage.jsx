@@ -21,7 +21,6 @@ const PRESET_IMAGES = [
   { label: 'Echoes of Tokyo (Neon Noir)', value: '/assets/images/echoes_of_tokyo.jpg' },
   { label: 'Solitude (Icelandic Aerial)', value: '/assets/images/solitude_icelandic.jpg' },
   { label: 'Chronos (High-Speed Speedway)', value: '/assets/images/chronos_speedway.jpg' },
-  { label: 'Cutting Suite Studio', value: '/assets/images/cutting_room_suite.jpg' },
   { label: 'Director Portrait', value: '/assets/images/pankaj_regar_portrait.jpg' },
 ];
 
@@ -202,21 +201,21 @@ export default function AdminPage({ onPreviewProject }) {
         <div className="w-full max-w-md bg-white border border-zinc-200 rounded-3xl shadow-2xl p-8 text-left">
           
           <div className="flex items-center gap-3 mb-6">
-            <div className="w-12 h-12 rounded-2xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-amber-700 shadow-subtle">
-              <Lock className="w-6 h-6" />
+            <div className="w-12 h-12 rounded-2xl bg-zinc-900 text-white flex items-center justify-center shadow-subtle">
+              <Lock className="w-5 h-5 text-amber-500" />
             </div>
             <div>
               <h1 className="text-xl font-black text-zinc-950 tracking-tight">
-                Studio CMS Portal
+                Studio Portal
               </h1>
               <p className="text-xs text-zinc-500 font-medium">
-                Client Video Management Console
+                Private Workspace Access
               </p>
             </div>
           </div>
 
           <p className="text-xs text-zinc-600 mb-6 leading-relaxed">
-            This private administration area is restricted to the client. Please enter your admin passkey to add, edit, or delete portfolio videos.
+            This workspace is protected. Please enter your security passkey to access the dashboard.
           </p>
 
           {loginError && (
@@ -229,20 +228,20 @@ export default function AdminPage({ onPreviewProject }) {
           <form onSubmit={handleLoginSubmit} className="space-y-4">
             <div>
               <label className="block text-xs font-bold uppercase tracking-wider text-zinc-700 mb-2">
-                Admin Passkey
+                Security Passkey
               </label>
               <div className="relative">
                 <input
                   type={showPassword ? 'text' : 'password'}
                   required
                   autoFocus
-                  placeholder="Enter admin password"
+                  placeholder="••••••••••••"
                   value={password}
                   onChange={(e) => {
                     setPassword(e.target.value);
                     setLoginError('');
                   }}
-                  className="w-full pl-4 pr-11 py-3 rounded-xl bg-zinc-50 border border-zinc-200 text-zinc-950 text-sm focus:outline-none focus:border-zinc-950 focus:bg-white transition-colors"
+                  className="w-full pl-4 pr-11 py-3 rounded-xl bg-zinc-50 border border-zinc-200 text-zinc-950 text-sm focus:outline-none focus:border-zinc-950 focus:bg-white transition-colors tracking-wider"
                 />
                 <button
                   type="button"
@@ -252,16 +251,13 @@ export default function AdminPage({ onPreviewProject }) {
                   {showPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
                 </button>
               </div>
-              <div className="mt-2 text-[11px] text-zinc-500">
-                Default password: <strong className="font-mono text-zinc-800 bg-zinc-100 px-1.5 py-0.5 rounded font-bold">admin</strong>
-              </div>
             </div>
 
             <button
               type="submit"
               className="w-full py-3.5 rounded-xl bg-zinc-900 hover:bg-black text-white text-xs font-bold transition-all shadow-md hover:shadow-lg"
             >
-              Authenticate & Open Dashboard
+              Unlock Dashboard
             </button>
           </form>
 

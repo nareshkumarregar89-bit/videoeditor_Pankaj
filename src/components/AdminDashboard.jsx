@@ -13,7 +13,6 @@ const PRESET_IMAGES = [
   { label: 'Echoes of Tokyo (Neon Noir)', value: '/assets/images/echoes_of_tokyo.jpg' },
   { label: 'Solitude (Icelandic Aerial)', value: '/assets/images/solitude_icelandic.jpg' },
   { label: 'Chronos (High-Speed Speedway)', value: '/assets/images/chronos_speedway.jpg' },
-  { label: 'Cutting Suite Studio', value: '/assets/images/cutting_room_suite.jpg' },
   { label: 'Director Portrait', value: '/assets/images/pankaj_regar_portrait.jpg' },
 ];
 

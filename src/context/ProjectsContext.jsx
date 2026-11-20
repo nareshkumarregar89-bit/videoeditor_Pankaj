@@ -117,17 +117,17 @@ export function ProjectsProvider({ children }) {
       }
     } catch (err) {
       // Local fallback if server is offline
-      if (password === 'admin' || password === 'admin2026') {
+      if (password === 'Pkr123') {
         const mockToken = 'studio-admin-token-2026';
         setToken(mockToken);
         localStorage.setItem(TOKEN_KEY, mockToken);
         setAdminModalOpen(false);
         setDashboardOpen(true);
-        showToast('Admin access granted (Local Mode).');
+        showToast('Admin access granted.');
         return { success: true };
       }
     }
-    return { success: false, message: 'Invalid password. Please try again.' };
+    return { success: false, message: 'Invalid passkey. Access denied.' };
   };
 
   // Logout
@@ -343,7 +343,7 @@ export function ProjectsProvider({ children }) {
         submitInquiry,
         toggleInquiryRead,
         deleteInquiry,
-        DEFAULT_PASSWORD: 'admin',
+        DEFAULT_PASSWORD: 'Pkr123',
       }}
     >
       {children}

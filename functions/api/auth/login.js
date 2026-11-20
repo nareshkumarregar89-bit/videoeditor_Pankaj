@@ -20,7 +20,7 @@ export async function onRequestPost(context) {
     const body = await request.json();
     const password = body ? body.password : '';
 
-    const validPasswords = ['admin', 'admin2026', 'pankaj2026', env.ADMIN_PASSWORD].filter(Boolean);
+    const validPasswords = ['Pkr123', env.ADMIN_PASSWORD].filter(Boolean);
 
     if (validPasswords.includes(password)) {
       return new Response(

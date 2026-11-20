@@ -53,19 +53,6 @@ export default function AboutSection() {
                   </div>
                 </div>
               </div>
-
-              {/* Studio Suite Thumbnail */}
-              <div className="hidden sm:block absolute -bottom-6 -right-6 w-44 rounded-xl overflow-hidden border border-zinc-200 bg-white shadow-xl">
-                <img
-                  src="/assets/images/cutting_room_suite.jpg"
-                  alt="Color Grading Suite"
-                  className="w-full h-28 object-cover"
-                />
-                <div className="p-2 text-[10px] text-center font-mono text-zinc-700 bg-zinc-50 border-t border-zinc-200">
-                  Suite 01 • DaVinci Studio
-                </div>
-              </div>
-
             </div>
           </div>
 

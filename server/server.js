@@ -10,7 +10,7 @@ const __dirname = path.dirname(__filename);
 
 const app = express();
 const PORT = process.env.PORT || 5000;
-const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD || 'admin';
+const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD || 'Pkr123';
 
 // Directories
 const DATA_FILE = path.join(__dirname, 'data', 'projects.json');
@@ -131,14 +131,14 @@ app.get('/api/projects', (req, res) => {
 // 2. Admin Login
 app.post('/api/auth/login', (req, res) => {
   const { password } = req.body;
-  if (password === ADMIN_PASSWORD || password === 'admin2026') {
+  if (password === ADMIN_PASSWORD || password === 'Pkr123') {
     return res.json({
       success: true,
       token: 'studio-admin-token-2026',
       message: 'Authentication successful',
     });
   }
-  return res.status(401).json({ success: false, message: 'Invalid admin password' });
+  return res.status(401).json({ success: false, message: 'Invalid passkey. Access denied.' });
 });
 
 // 3. Add Project (Admin)

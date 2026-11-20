@@ -185,7 +185,7 @@ export default function HomePage({ onOpenShowreel, onSelectProject }) {
                 Featured Presentation
               </span>
               <h2 className="text-3xl sm:text-4xl font-black text-zinc-950 tracking-tight mb-3">
-                2026 Master Director's Reel
+                2026 Master Cinematic Showreel
               </h2>
               <p className="text-zinc-600 text-sm sm:text-base">
                 Click below to launch the interactive screening room with custom aspect ratio control and technical mastering telemetry.
@@ -297,7 +297,7 @@ export default function HomePage({ onOpenShowreel, onSelectProject }) {
             <div className="lg:col-span-5 relative">
               <div className="relative mx-auto max-w-md lg:max-w-none">
                 
-                {/* Secondary Framed Portrait with Seamless Gradient Blend — Clean, Zero Text Overlay */}
+                {/* Framed Portrait with Seamless Gradient Blend — Clean & Cinematic */}
                 <div className="relative rounded-3xl overflow-hidden border border-zinc-200/90 bg-gradient-to-b from-zinc-100 to-white shadow-2xl aspect-[4/5] group">
                   <img
                     src="/assets/images/pankaj_regar_portrait.jpg"
@@ -307,19 +307,6 @@ export default function HomePage({ onOpenShowreel, onSelectProject }) {
                   <div className="absolute inset-0 bg-gradient-to-t from-white/70 via-transparent to-transparent pointer-events-none" />
                   <div className="absolute inset-0 ring-1 ring-inset ring-black/5 rounded-3xl pointer-events-none" />
                 </div>
-
-                {/* Overlapping Color Suite Card */}
-                <div className="hidden sm:block absolute -bottom-6 -right-6 w-48 rounded-2xl overflow-hidden border-2 border-white bg-white shadow-2xl">
-                  <img
-                    src="/assets/images/cutting_room_suite.jpg"
-                    alt="DaVinci Resolve Color Suite"
-                    className="w-full h-28 object-cover"
-                  />
-                  <div className="p-2.5 text-[10px] text-center font-mono text-zinc-700 bg-zinc-50 border-t border-zinc-100 font-semibold">
-                    DaVinci 19 • HDR Mastering
-                  </div>
-                </div>
-
               </div>
             </div>
 
@@ -327,7 +314,7 @@ export default function HomePage({ onOpenShowreel, onSelectProject }) {
             <div className="lg:col-span-7 text-left">
               <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-amber-500/10 border border-amber-500/20 text-xs font-bold text-amber-800 uppercase tracking-widest mb-4">
                 <Clapperboard className="w-3.5 h-3.5 text-amber-600" />
-                Editorial & Directing Philosophy
+                Cinematic Editorial Philosophy
               </div>
 
               <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-zinc-950 tracking-tight mb-6 leading-tight">

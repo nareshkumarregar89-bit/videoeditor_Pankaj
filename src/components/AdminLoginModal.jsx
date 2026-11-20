@@ -69,20 +69,20 @@ export default function AdminLoginModal() {
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
             <label className="block text-xs font-bold uppercase tracking-wider text-zinc-700 mb-2">
-              Passkey / Admin Password
+              Security Passkey
             </label>
             <div className="relative">
               <input
                 type={showPassword ? 'text' : 'password'}
                 required
                 autoFocus
-                placeholder="Enter password"
+                placeholder="••••••••••••"
                 value={password}
                 onChange={(e) => {
                   setPassword(e.target.value);
                   setError('');
                 }}
-                className="w-full pl-4 pr-11 py-3 rounded-xl bg-zinc-50 border border-zinc-200 text-zinc-950 text-sm focus:outline-none focus:border-zinc-950 focus:bg-white transition-colors"
+                className="w-full pl-4 pr-11 py-3 rounded-xl bg-zinc-50 border border-zinc-200 text-zinc-950 text-sm focus:outline-none focus:border-zinc-950 focus:bg-white transition-colors tracking-wider"
               />
               <button
                 type="button"
@@ -91,12 +91,6 @@ export default function AdminLoginModal() {
               >
                 {showPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
               </button>
-            </div>
-            <div className="mt-2 flex items-center justify-between text-[11px] text-zinc-500">
-              <span className="flex items-center gap-1">
-                <KeyRound className="w-3 h-3 text-amber-600" />
-                Default password: <strong className="text-zinc-800 font-mono font-bold bg-zinc-100 px-1 py-0.5 rounded">admin</strong>
-              </span>
             </div>
           </div>
 

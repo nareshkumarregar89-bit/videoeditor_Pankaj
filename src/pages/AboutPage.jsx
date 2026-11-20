@@ -69,21 +69,9 @@ export default function AboutPage() {
                     8+
                   </div>
                   <div>
-                    <h4 className="text-zinc-950 font-bold text-sm">Years in Post & Directing</h4>
+                    <h4 className="text-zinc-950 font-bold text-sm">Years in Cinematic Video Editing</h4>
                     <p className="text-xs text-zinc-500">45+ commercial & narrative credits</p>
                   </div>
-                </div>
-              </div>
-
-              {/* Cutting Room Suite Photo */}
-              <div className="rounded-2xl overflow-hidden border border-zinc-200 bg-white shadow-card">
-                <img
-                  src="/assets/images/cutting_room_suite.jpg"
-                  alt="Cutting Suite Studio"
-                  className="w-full h-44 object-cover"
-                />
-                <div className="p-3 text-xs text-center font-mono text-zinc-700 bg-zinc-50 border-t border-zinc-100">
-                  Studio Post Suite • DaVinci Resolve 19 HDR
                 </div>
               </div>
 
@@ -99,10 +87,10 @@ export default function AboutPage() {
 
               <div className="space-y-5 text-zinc-700 text-base leading-relaxed">
                 <p>
-                  I am a Director and Senior Film Editor collaborating with commercial agencies, automotive brands, and independent film productions.
+                  I am a Senior Cinematic Video Editor collaborating with commercial agencies, automotive brands, and independent film productions.
                 </p>
                 <p>
-                  My work spans high-velocity automotive commercials, underground music videos, sensitive observational documentaries, and atmospheric narrative shorts. Having helmed projects from both behind the camera and inside the color grading suite, I bring a unique holistic sensibility to every frame.
+                  My work spans high-velocity automotive commercials, underground music videos, sensitive observational documentaries, and atmospheric narrative shorts. Having shaped projects with precision cutting and atmospheric color grading, I bring a unique holistic sensibility to every frame.
                 </p>
                 <p>
                   In the edit suite, I treat pacing like musical tempo. Every cut is calculated against the emotional curve of the scene, actor performance micro-beats, and sonic impacts. In the color grade, I employ scene-referred ACES color pipelines and authentic Kodak film stocks to give every picture cinematic gravity and tactile texture.
