@@ -1,6 +1,6 @@
 import React from 'react';
 import { SKILLS } from '../data/skills';
-import { Cpu, Check, Layers, Sliders } from 'lucide-react';
+import { Cpu, Sliders } from 'lucide-react';
 
 export default function SkillsSection() {
   const hardwarePipeline = [
@@ -11,22 +11,22 @@ export default function SkillsSection() {
   ];
 
   return (
-    <section id="toolkit" className="py-24 border-t border-dark-800 relative bg-dark-900/50">
+    <section id="toolkit" className="py-24 border-t border-zinc-200 relative bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Heading */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
           <div>
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-dark-900 border border-dark-800 text-xs font-semibold text-gold-400 uppercase tracking-widest mb-3">
-              <Cpu className="w-3.5 h-3.5" />
+            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-amber-500/10 border border-amber-500/20 text-xs font-bold text-amber-800 uppercase tracking-widest mb-3">
+              <Cpu className="w-3.5 h-3.5 text-amber-600" />
               Technical Arsenal
             </div>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-zinc-950 tracking-tight">
               Software & Post Pipeline
             </h2>
           </div>
 
-          <p className="text-dark-400 text-sm sm:text-base max-w-md">
+          <p className="text-zinc-600 text-sm sm:text-base max-w-md">
             Mastery across industry-standard NLEs, cinema camera sensors, color-managed workflows, and high-fidelity sound engines.
           </p>
         </div>
@@ -36,11 +36,11 @@ export default function SkillsSection() {
           {SKILLS.map((group, index) => (
             <div
               key={index}
-              className="p-6 rounded-2xl bg-dark-900 border border-dark-800 hover:border-dark-700 transition-colors flex flex-col justify-between"
+              className="p-6 rounded-2xl bg-zinc-50 border border-zinc-200 hover:border-zinc-300 transition-colors flex flex-col justify-between shadow-subtle"
             >
               <div>
-                <h3 className="text-lg font-bold text-white mb-4 flex items-center gap-2 border-b border-dark-800 pb-3">
-                  <span className="w-2 h-2 rounded-full bg-gold-400" />
+                <h3 className="text-lg font-bold text-zinc-950 mb-4 flex items-center gap-2 border-b border-zinc-200 pb-3">
+                  <span className="w-2 h-2 rounded-full bg-amber-500" />
                   {group.category}
                 </h3>
 
@@ -48,14 +48,14 @@ export default function SkillsSection() {
                   {group.items.map((tool, idx) => (
                     <div key={idx} className="group/item">
                       <div className="flex items-center justify-between mb-1">
-                        <span className="text-sm font-semibold text-dark-200 group-hover/item:text-gold-300 transition-colors">
+                        <span className="text-sm font-bold text-zinc-800 group-hover/item:text-amber-700 transition-colors">
                           {tool.name}
                         </span>
-                        <span className="text-[10px] px-2 py-0.5 rounded-full bg-dark-800 text-gold-400 font-mono font-medium">
+                        <span className="text-[10px] px-2 py-0.5 rounded-full bg-white border border-zinc-200 text-amber-800 font-mono font-bold shadow-subtle">
                           {tool.level}
                         </span>
                       </div>
-                      <p className="text-xs text-dark-400">
+                      <p className="text-xs text-zinc-600">
                         {tool.desc}
                       </p>
                     </div>
@@ -66,17 +66,17 @@ export default function SkillsSection() {
           ))}
         </div>
 
-        {/* Monitoring & Remote Infrastructure Bar */}
-        <div className="p-6 sm:p-8 rounded-2xl bg-dark-950 border border-dark-800">
-          <h4 className="text-xs font-bold uppercase tracking-widest text-gold-400 mb-6 flex items-center gap-2">
+        {/* Monitoring & Remote Infrastructure Bar (High-Contrast Slate/Charcoal Panel) */}
+        <div className="p-6 sm:p-8 rounded-2xl bg-zinc-950 text-white shadow-xl">
+          <h4 className="text-xs font-bold uppercase tracking-widest text-amber-400 mb-6 flex items-center gap-2">
             <Sliders className="w-4 h-4" />
             Studio Hardware & Remote Collaboration Standard
           </h4>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 text-left">
             {hardwarePipeline.map((item, i) => (
-              <div key={i} className="border-l-2 border-gold-500/40 pl-3">
-                <span className="text-[11px] text-dark-400 uppercase tracking-wider block mb-1">
+              <div key={i} className="border-l-2 border-amber-500/60 pl-3">
+                <span className="text-[11px] text-zinc-400 uppercase tracking-wider block mb-1">
                   {item.label}
                 </span>
                 <span className="text-xs sm:text-sm font-semibold text-white">

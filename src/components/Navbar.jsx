@@ -26,37 +26,38 @@ export default function Navbar({ onOpenShowreel }) {
     <header
       className={`fixed top-0 left-0 w-full z-40 transition-all duration-300 ${
         isScrolled
-          ? 'bg-dark-950/90 backdrop-blur-md border-b border-dark-800 py-3 shadow-lg'
+          ? 'bg-white/90 backdrop-blur-md border-b border-zinc-200/80 py-3.5 shadow-sm'
           : 'bg-transparent py-5'
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
+          
           {/* Logo / Brand Name */}
           <a
             href="#"
             className="flex items-center gap-3 group"
           >
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-gold-500/20 to-gold-500/5 border border-gold-500/30 flex items-center justify-center text-gold-400 group-hover:border-gold-400 group-hover:scale-105 transition-all">
-              <Film className="w-5 h-5 text-gold-400" />
+            <div className="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-amber-600 group-hover:bg-amber-500 group-hover:text-white transition-all shadow-subtle">
+              <Film className="w-5 h-5" />
             </div>
             <div className="flex flex-col">
-              <span className="text-lg font-bold tracking-tight text-white group-hover:text-gold-400 transition-colors">
+              <span className="text-lg font-bold tracking-tight text-zinc-950 group-hover:text-amber-600 transition-colors">
                 Pankaj Regar
               </span>
-              <span className="text-xs font-medium text-dark-400 tracking-wider uppercase">
-                Director & Film Editor
+              <span className="text-xs font-semibold text-zinc-500 tracking-wider uppercase">
+                Cinematic Video Editor
               </span>
             </div>
           </a>
 
           {/* Desktop Navigation Links */}
-          <nav className="hidden md:flex items-center gap-1 bg-dark-900/80 border border-dark-800 rounded-full px-3 py-1.5 backdrop-blur-sm">
+          <nav className="hidden md:flex items-center gap-1 bg-zinc-100/90 border border-zinc-200/90 rounded-full px-3 py-1.5 backdrop-blur-sm shadow-subtle">
             {navLinks.map((link) => (
               <a
                 key={link.name}
                 href={link.href}
-                className="px-4 py-1.5 text-sm font-medium text-dark-300 hover:text-white hover:bg-dark-800/80 rounded-full transition-all"
+                className="px-4 py-1.5 text-sm font-medium text-zinc-600 hover:text-zinc-950 hover:bg-white hover:shadow-sm rounded-full transition-all"
               >
                 {link.name}
               </a>
@@ -65,14 +66,14 @@ export default function Navbar({ onOpenShowreel }) {
 
           {/* Right Action: Availability Badge & CTA */}
           <div className="hidden lg:flex items-center gap-4">
-            <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-xs text-emerald-400 font-medium">
-              <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+            <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-emerald-50 border border-emerald-200 text-xs text-emerald-800 font-medium shadow-subtle">
+              <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
               Available for Projects
             </div>
 
             <a
               href="#contact"
-              className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-gold-500 hover:bg-gold-400 text-dark-950 font-semibold text-sm transition-all hover:shadow-glow hover:-translate-y-0.5"
+              className="inline-flex items-center gap-1.5 px-5 py-2 rounded-full bg-zinc-900 hover:bg-black text-white font-semibold text-sm transition-all shadow-sm hover:shadow hover:-translate-y-0.5"
             >
               Let's Talk
               <ArrowUpRight className="w-4 h-4" />
@@ -82,7 +83,7 @@ export default function Navbar({ onOpenShowreel }) {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="md:hidden p-2 rounded-lg bg-dark-900 border border-dark-800 text-dark-300 hover:text-white"
+            className="md:hidden p-2 rounded-xl bg-zinc-100 border border-zinc-200 text-zinc-700 hover:text-zinc-950"
             aria-label="Toggle Navigation"
           >
             {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -92,10 +93,10 @@ export default function Navbar({ onOpenShowreel }) {
 
       {/* Mobile Drawer */}
       {mobileMenuOpen && (
-        <div className="md:hidden bg-dark-950/95 border-b border-dark-800 px-4 pt-3 pb-6 mt-3 backdrop-blur-xl animate-fadeIn">
+        <div className="md:hidden bg-white/98 border-b border-zinc-200 px-4 pt-3 pb-6 mt-3 shadow-xl backdrop-blur-xl animate-fadeIn">
           <div className="flex flex-col space-y-2">
-            <div className="flex items-center gap-2 px-3 py-2 mb-2 rounded-lg bg-emerald-500/10 border border-emerald-500/20 text-xs text-emerald-400 font-medium">
-              <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+            <div className="flex items-center gap-2 px-3 py-2 mb-2 rounded-xl bg-emerald-50 border border-emerald-200 text-xs text-emerald-800 font-medium">
+              <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
               Available for New Projects & Bookings
             </div>
             {navLinks.map((link) => (
@@ -103,7 +104,7 @@ export default function Navbar({ onOpenShowreel }) {
                 key={link.name}
                 href={link.href}
                 onClick={() => setMobileMenuOpen(false)}
-                className="px-3 py-2 rounded-lg text-base font-medium text-dark-200 hover:text-white hover:bg-dark-900 transition-colors"
+                className="px-3 py-2 rounded-xl text-base font-medium text-zinc-700 hover:text-zinc-950 hover:bg-zinc-100 transition-colors"
               >
                 {link.name}
               </a>
@@ -114,15 +115,15 @@ export default function Navbar({ onOpenShowreel }) {
                   setMobileMenuOpen(false);
                   onOpenShowreel();
                 }}
-                className="w-full flex items-center justify-center gap-2 py-2.5 rounded-xl border border-dark-700 bg-dark-900 text-white font-medium text-sm"
+                className="w-full flex items-center justify-center gap-2 py-2.5 rounded-xl border border-zinc-200 bg-zinc-50 hover:bg-zinc-100 text-zinc-900 font-semibold text-sm"
               >
-                <Sparkles className="w-4 h-4 text-gold-400" />
+                <Sparkles className="w-4 h-4 text-amber-600" />
                 Watch Showreel 2026
               </button>
               <a
                 href="#contact"
                 onClick={() => setMobileMenuOpen(false)}
-                className="w-full flex items-center justify-center gap-2 py-2.5 rounded-xl bg-gold-500 text-dark-950 font-bold text-sm"
+                className="w-full flex items-center justify-center gap-2 py-2.5 rounded-xl bg-zinc-900 text-white font-bold text-sm shadow-sm"
               >
                 Get in Touch
                 <ArrowUpRight className="w-4 h-4" />

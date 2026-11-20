@@ -19,9 +19,9 @@ export const SKILLS = [
     ]
   },
   {
-    category: 'Directing & Production',
+    category: 'Post-Production Pipeline & Storycraft',
     items: [
-      { name: 'Creative Direction & Storyboarding', level: 'Master', desc: 'Visual treatment, scene pacing & story arcs' },
+      { name: 'Editorial Storycraft & Pacing', level: 'Master', desc: 'Visual storytelling, scene rhythm & narrative arcs' },
       { name: 'Cinema Camera Pipelines', level: 'Expert', desc: 'ARRI Alexa LF, RED V-Raptor, Sony Venice' },
       { name: 'Anamorphic Lens Workflows', level: 'Expert', desc: 'De-squeeze monitoring & flare management' },
       { name: 'Sound Design & Stems Balancing', level: 'Advanced', desc: 'Foley, soundscape layering & loudness standards' },
@@ -31,13 +31,13 @@ export const SKILLS = [
 
 export const SERVICES = [
   {
-    id: 'directing',
+    id: 'cinematic-editing',
     number: '01',
-    title: 'Commercial & Film Directing',
-    subtitle: 'From concept to final master',
-    description: 'Directing high-impact narrative films, brand commercials, and music videos with obsessive attention to visual language, actor performance, and cinematic atmosphere.',
-    deliverables: ['Concept & Treatment Deck', 'Storyboard & Shot List', 'On-Set Direction', 'Full Creative Supervision'],
-    icon: 'Clapperboard'
+    title: 'Cinematic Offline & Online Editing',
+    subtitle: 'From raw rushes to master cut',
+    description: 'Editing high-impact narrative films, brand commercials, and music videos with obsessive attention to visual rhythm, emotional resonance, and seamless scene flow.',
+    deliverables: ['Editorial Assembly & Pacing Strategy', 'Rough Cut to Picture Lock', 'Rhythm & Narrative Flow', 'Master Conforming'],
+    icon: 'Film'
   },
   {
     id: 'editing',
@@ -45,8 +45,8 @@ export const SERVICES = [
     title: 'High-Impact Video Editing',
     subtitle: 'Rhythm, pace & emotional pull',
     description: 'Precision editing that keeps viewers glued to the screen. Transforming raw footage into tight, emotionally resonant sequences with rhythmic cuts and seamless transitions.',
-    deliverables: ['Offline Assembly & Rough Cut', 'Fine Cut & Director Trim', 'Social Media Variations (9:16, 4:5)', 'Online Master conforming'],
-    icon: 'Film'
+    deliverables: ['Offline Assembly & Rough Cut', 'Fine Cut & Precision Trim', 'Social Media Variations (9:16, 4:5)', 'Online Master conforming'],
+    icon: 'Scissors'
   },
   {
     id: 'color',
@@ -73,7 +73,7 @@ export const TESTIMONIALS = [
     id: 1,
     quote: "Pankaj has a rare instinct for visual rhythm. His edit on our global automotive launch transformed high-speed racing rushes into a coherent, heart-racing adrenaline journey.",
     author: "Julian Vance",
-    role: "Global Creative Director",
+    role: "Head of Creative",
     company: "Bavaria Motorwerks",
     project: "Nocturn Campaign"
   },
@@ -98,11 +98,11 @@ export const TESTIMONIALS = [
 export const EXPERIENCES = [
   {
     period: '2022 — Present',
-    role: 'Independent Film Director & Lead Editor',
+    role: 'Lead Cinematic Video Editor & Colorist',
     company: 'Regar Cinematic Studio',
     location: 'Mumbai & Remote Worldwide',
-    description: 'Directing and editing commercial spots, luxury fashion reels, narrative shorts, and music videos for international production agencies and brands.',
-    highlights: ['Directed 20+ commercial projects for global clients', 'Mastered color grading pipelines for 8K RED and ARRI raw rushes']
+    description: 'Leading post-production editing for commercial spots, luxury fashion reels, narrative shorts, and music videos for international production agencies and brands.',
+    highlights: ['Cut and finished 20+ commercial projects for global clients', 'Mastered color grading pipelines for 8K RED and ARRI raw rushes']
   },
   {
     period: '2019 — 2022',

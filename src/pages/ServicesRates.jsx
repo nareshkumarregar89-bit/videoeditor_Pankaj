@@ -191,7 +191,7 @@ export default function ServicesRates() {
                   DIT &amp; On-Set Editorial Consultation
                 </h3>
                 <p className="font-body-md text-sm text-on-surface-variant max-w-2xl leading-relaxed">
-                  Live-grade CDL workflows directly from ARRI/RED cameras to director monitors. Checksum verification (Silverstack), fast H.264 / ProRes proxy pipelines for same-day assemblies, ensuring the vision captured on set transitions seamlessly to the final color conform.
+                  Live-grade CDL workflows directly from ARRI/RED cameras to client and production monitors. Checksum verification (Silverstack), fast H.264 / ProRes proxy pipelines for same-day assemblies, ensuring the vision captured on set transitions seamlessly to the final color conform.
                 </p>
               </div>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-6 pt-4 bg-surface-container-lowest/60 p-3 rounded relative z-10 border border-white/5">
@@ -297,7 +297,7 @@ export default function ServicesRates() {
                   </span>
                 </div>
                 <p className="font-body-md text-sm text-on-surface leading-relaxed">
-                  Complete post supervision from assembly lock through color pass, acoustic mixing, and final theatrical DCP mastering. Bespoke workflows for directors demanding total craftsmanship.
+                  Complete post supervision from assembly lock through color pass, acoustic mixing, and final theatrical DCP mastering. Bespoke workflows for productions demanding total craftsmanship.
                 </p>
                 <div className="flex flex-col gap-2 pt-2 border-t border-white/5">
                   <div className="flex items-center gap-2 text-on-surface font-body-sm text-xs">
@@ -505,7 +505,7 @@ export default function ServicesRates() {
         </div>
       </section>
 
-      {/* Bottom Directorial Commission Callout */}
+      {/* Bottom Editorial Commission Callout */}
       <section className="w-full px-4 sm:px-gutter py-16">
         <div className="max-w-7xl mx-auto p-6 sm:p-10 md:p-12 bg-surface-container-low rounded-xl flex flex-col md:flex-row items-start md:items-center justify-between gap-8 border border-white/5 shadow-2xl">
           <div className="flex flex-col gap-2 max-w-2xl">

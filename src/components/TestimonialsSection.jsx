@@ -1,21 +1,21 @@
 import React from 'react';
 import { TESTIMONIALS } from '../data/skills';
-import { Star, Quote } from 'lucide-react';
+import { Star } from 'lucide-react';
 
 export default function TestimonialsSection() {
   return (
-    <section className="py-24 border-t border-dark-800 relative bg-dark-900/40">
+    <section className="py-24 border-t border-zinc-200 relative bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
         <div className="text-center max-w-2xl mx-auto mb-16">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-dark-900 border border-dark-800 text-xs font-semibold text-gold-400 uppercase tracking-widest mb-3">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-amber-500/10 border border-amber-500/20 text-xs font-bold text-amber-800 uppercase tracking-widest mb-3">
             Client Endorsements
           </div>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight mb-4">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-zinc-950 tracking-tight mb-4">
             Trusted by Creators & Agencies
           </h2>
-          <p className="text-dark-400 text-sm sm:text-base">
+          <p className="text-zinc-600 text-sm sm:text-base">
             Feedback from international commercial producers, automotive heads, and record labels.
           </p>
         </div>
@@ -25,30 +25,30 @@ export default function TestimonialsSection() {
           {TESTIMONIALS.map((t) => (
             <div
               key={t.id}
-              className="p-7 rounded-2xl bg-dark-900 border border-dark-800 hover:border-dark-700 transition-colors flex flex-col justify-between"
+              className="p-7 rounded-2xl bg-zinc-50 border border-zinc-200 hover:border-zinc-300 hover:shadow-card transition-all flex flex-col justify-between shadow-subtle"
             >
               <div>
                 {/* 5 Stars Rating */}
-                <div className="flex items-center gap-1 mb-4 text-gold-400">
+                <div className="flex items-center gap-1 mb-4 text-amber-500">
                   {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="w-4 h-4 fill-gold-400 text-gold-400" />
+                    <Star key={i} className="w-4 h-4 fill-amber-500 text-amber-500" />
                   ))}
                 </div>
 
                 {/* Quote Text */}
-                <p className="text-dark-200 text-sm sm:text-base leading-relaxed mb-6 italic">
+                <p className="text-zinc-800 text-sm sm:text-base leading-relaxed mb-6 italic">
                   "{t.quote}"
                 </p>
               </div>
 
-              <div className="pt-4 border-t border-dark-800/80">
-                <p className="text-white font-bold text-sm">
+              <div className="pt-4 border-t border-zinc-200">
+                <p className="text-zinc-950 font-bold text-sm">
                   {t.author}
                 </p>
-                <p className="text-xs text-dark-400">
-                  {t.role} • <span className="text-dark-300 font-medium">{t.company}</span>
+                <p className="text-xs text-zinc-600">
+                  {t.role} • <span className="text-zinc-900 font-bold">{t.company}</span>
                 </p>
-                <div className="mt-2 inline-block px-2 py-0.5 rounded bg-dark-800 text-[10px] text-gold-400 font-mono">
+                <div className="mt-2.5 inline-block px-2.5 py-0.5 rounded-md bg-white border border-zinc-200 text-[10px] text-amber-800 font-mono font-bold shadow-subtle">
                   Ref: {t.project}
                 </div>
               </div>

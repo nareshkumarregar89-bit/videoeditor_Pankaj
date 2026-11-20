@@ -1,29 +1,29 @@
 import React from 'react';
 import { EXPERIENCES } from '../data/skills';
-import { Briefcase, Calendar, MapPin, CheckCircle } from 'lucide-react';
+import { Calendar, MapPin, CheckCircle } from 'lucide-react';
 
 export default function ExperienceSection() {
   return (
-    <section id="experience" className="py-24 border-t border-dark-800 relative bg-dark-950">
+    <section id="experience" className="py-24 border-t border-zinc-200 relative bg-zinc-50/60">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Heading */}
         <div className="text-center max-w-2xl mx-auto mb-16">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-dark-900 border border-dark-800 text-xs font-semibold text-gold-400 uppercase tracking-widest mb-3">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-amber-500/10 border border-amber-500/20 text-xs font-bold text-amber-800 uppercase tracking-widest mb-3">
             Career Journey
           </div>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight mb-4">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-zinc-950 tracking-tight mb-4">
             Experience & Milestones
           </h2>
-          <p className="text-dark-400 text-sm sm:text-base">
-            Over eight years of commercial post-production leadership, on-set directing, and collaborative storytelling.
+          <p className="text-zinc-600 text-sm sm:text-base">
+            Over eight years of commercial post-production leadership, cinematic video editing, and collaborative storytelling.
           </p>
         </div>
 
         {/* Timeline List */}
         <div className="max-w-4xl mx-auto relative">
-          {/* Subtle Vertical Timeline Line */}
-          <div className="absolute left-4 sm:left-1/2 top-4 bottom-4 w-px bg-dark-800 -translate-x-1/2 hidden sm:block" />
+          {/* Vertical Timeline Line */}
+          <div className="absolute left-4 sm:left-1/2 top-4 bottom-4 w-px bg-zinc-200 -translate-x-1/2 hidden sm:block" />
 
           <div className="space-y-8 sm:space-y-12">
             {EXPERIENCES.map((exp, index) => {
@@ -37,40 +37,40 @@ export default function ExperienceSection() {
                   }`}
                 >
                   {/* Central Node Dot */}
-                  <div className="hidden sm:flex absolute left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-dark-950 border-2 border-gold-400 items-center justify-center z-10">
-                    <span className="w-1.5 h-1.5 rounded-full bg-gold-400" />
+                  <div className="hidden sm:flex absolute left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-white border-2 border-amber-500 items-center justify-center z-10 shadow-sm">
+                    <span className="w-1.5 h-1.5 rounded-full bg-amber-500" />
                   </div>
 
                   {/* Content Card */}
                   <div className="w-full sm:w-[calc(50%-2rem)]">
-                    <div className="p-6 sm:p-7 rounded-2xl bg-dark-900 border border-dark-800 hover:border-dark-700 transition-all shadow-md">
+                    <div className="p-6 sm:p-7 rounded-2xl bg-white border border-zinc-200 hover:border-zinc-300 transition-all shadow-subtle hover:shadow-card">
                       <div className="flex flex-wrap items-center justify-between gap-2 mb-2">
-                        <span className="inline-flex items-center gap-1.5 text-xs font-mono font-semibold text-gold-400">
-                          <Calendar className="w-3.5 h-3.5" />
+                        <span className="inline-flex items-center gap-1.5 text-xs font-mono font-bold text-amber-800">
+                          <Calendar className="w-3.5 h-3.5 text-amber-600" />
                           {exp.period}
                         </span>
-                        <span className="inline-flex items-center gap-1 text-[11px] text-dark-400">
-                          <MapPin className="w-3 h-3" />
+                        <span className="inline-flex items-center gap-1 text-[11px] text-zinc-500 font-medium">
+                          <MapPin className="w-3 h-3 text-zinc-400" />
                           {exp.location}
                         </span>
                       </div>
 
-                      <h3 className="text-lg sm:text-xl font-bold text-white mb-1">
+                      <h3 className="text-lg sm:text-xl font-bold text-zinc-950 mb-1">
                         {exp.role}
                       </h3>
 
-                      <h4 className="text-xs uppercase tracking-wider font-semibold text-dark-300 mb-4">
+                      <h4 className="text-xs uppercase tracking-wider font-bold text-zinc-600 mb-4">
                         {exp.company}
                       </h4>
 
-                      <p className="text-sm text-dark-400 leading-relaxed mb-4">
+                      <p className="text-sm text-zinc-600 leading-relaxed mb-4">
                         {exp.description}
                       </p>
 
-                      <div className="space-y-1.5 pt-3 border-t border-dark-800/80">
+                      <div className="space-y-1.5 pt-3 border-t border-zinc-100">
                         {exp.highlights.map((item, idx) => (
-                          <div key={idx} className="flex items-start gap-2 text-xs text-dark-300">
-                            <CheckCircle className="w-3.5 h-3.5 text-gold-400 shrink-0 mt-0.5" />
+                          <div key={idx} className="flex items-start gap-2 text-xs text-zinc-700">
+                            <CheckCircle className="w-3.5 h-3.5 text-amber-600 shrink-0 mt-0.5" />
                             <span>{item}</span>
                           </div>
                         ))}

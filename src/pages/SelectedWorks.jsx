@@ -53,7 +53,7 @@ export default function SelectedWorks() {
           <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-space-md pt-space-xs">
             <div className="flex flex-col gap-1">
               <span className="font-label-caps text-[11px] uppercase tracking-[0.28em] text-secondary font-semibold">
-                Filmography &amp; Directorial Vault
+                Filmography &amp; Editorial Vault
               </span>
               <h1 className="font-headline-xl text-3xl sm:text-5xl uppercase tracking-tight text-on-surface font-semibold">
                 Selected Works
@@ -264,7 +264,7 @@ export default function SelectedWorks() {
         </div>
       </section>
 
-      {/* Technical Pipeline & Directorial Workflow Overview (Bento Grid) */}
+      {/* Technical Pipeline & Editorial Workflow Overview (Bento Grid) */}
       <section className="w-full px-4 sm:px-gutter py-12 bg-surface-container-lowest border-y border-white/5">
         <div className="max-w-7xl mx-auto flex flex-col gap-8">
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
@@ -346,7 +346,7 @@ export default function SelectedWorks() {
         </div>
       </section>
 
-      {/* Bottom Directorial Commission Callout */}
+      {/* Bottom Editorial Commission Callout */}
       <section className="w-full px-4 sm:px-gutter py-16">
         <div className="max-w-7xl mx-auto p-6 sm:p-10 md:p-12 bg-surface-container-low rounded-xl flex flex-col md:flex-row items-start md:items-center justify-between gap-8 border border-white/5 shadow-2xl">
           <div className="flex flex-col gap-2 max-w-2xl">
@@ -357,7 +357,7 @@ export default function SelectedWorks() {
               Have a script, commercial brief, or offline cut ready?
             </h2>
             <p className="font-body-md text-sm sm:text-base text-on-surface-variant">
-              Accepting select directorial commissions and lead offline editing projects for late Q2 through Q4 2026.
+              Accepting select lead cinematic editing and master finishing projects for late Q2 through Q4 2026.
             </p>
           </div>
           <div className="flex flex-col sm:flex-row items-center gap-3 w-full md:w-auto">

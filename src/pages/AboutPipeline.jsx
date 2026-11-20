@@ -10,7 +10,7 @@ export default function AboutPipeline() {
     <div className="flex flex-col w-full">
       <div className="max-w-7xl mx-auto w-full px-4 sm:px-gutter py-8 sm:py-12 flex flex-col gap-12 sm:gap-16">
 
-        {/* Hero: Statement & Directorial Suite Card */}
+        {/* Hero: Statement & Editorial Suite Card */}
         <div className="relative w-full rounded-xl bg-surface-container-low p-6 sm:p-10 lg:p-12 overflow-hidden shadow-2xl border border-white/5">
           <div className="absolute -right-24 -top-24 w-96 h-96 rounded-full bg-surface-variant/30 blur-3xl pointer-events-none"></div>
 
@@ -20,7 +20,7 @@ export default function AboutPipeline() {
               <div className="flex items-center gap-2">
                 <span className="w-2 h-2 rounded-full bg-secondary"></span>
                 <span className="font-meta-timecode text-xs text-secondary tracking-widest uppercase font-bold">
-                  DIRECTOR'S STATEMENT // SEQ. 001
+                  EDITOR'S STATEMENT // SEQ. 001
                 </span>
               </div>
 
@@ -47,7 +47,7 @@ export default function AboutPipeline() {
               </div>
             </div>
 
-            {/* Right: Director Grading Suite Stills */}
+            {/* Right: Editor Grading Suite Stills */}
             <div className="lg:col-span-7 relative">
               <div className="relative rounded-lg overflow-hidden bg-surface-container shadow-2xl border border-white/10">
                 <img
@@ -203,7 +203,7 @@ export default function AboutPipeline() {
                 </div>
                 <h3 className="font-headline-md text-lg text-on-surface mb-2 font-semibold">Ingestion &amp; Vision</h3>
                 <p className="font-body-sm text-xs sm:text-sm text-on-surface-variant">
-                  High-speed camera card checksum ingestion, Frame.io project integration, script notes breakdown, and lookbook alignment with director/agency creative leads.
+                  High-speed camera card checksum ingestion, Frame.io project integration, script notes breakdown, and lookbook alignment with client creative leads.
                 </p>
               </div>
               <div className="mt-6 pt-3 flex items-center justify-between font-label-code text-xs text-on-surface-variant border-t border-white/5">
@@ -341,11 +341,11 @@ export default function AboutPipeline() {
           </div>
         </div>
 
-        {/* Director Collaboration & Availability CTA */}
+        {/* Editorial Collaboration & Availability CTA */}
         <div className="p-6 sm:p-10 rounded-xl bg-surface-container-low flex flex-col md:flex-row items-center justify-between gap-6 shadow-xl border border-white/5">
           <div className="flex flex-col gap-1">
             <span className="font-meta-timecode text-xs text-secondary tracking-widest uppercase font-bold">
-              DIRECTOR COLLABORATION &amp; AVAILABILITY
+              POST-PRODUCTION COLLABORATION &amp; AVAILABILITY
             </span>
             <h3 className="font-headline-lg text-2xl text-on-surface uppercase font-semibold">
               Ready to shape your next picture?

@@ -51,7 +51,7 @@ export default function ContactBooking() {
           <div className="flex items-center gap-2">
             <span className="w-2 h-2 rounded-full bg-secondary"></span>
             <span className="font-meta-timecode text-xs text-secondary uppercase tracking-[0.25em] font-bold">
-              PROJECT TRANSMISSION // DIRECTORIAL DISPATCH
+              PROJECT TRANSMISSION // EDITORIAL DISPATCH
             </span>
           </div>
           <h1 className="font-headline-xl text-3xl sm:text-5xl text-on-surface uppercase tracking-tight font-semibold">
@@ -66,12 +66,12 @@ export default function ContactBooking() {
       {/* Main Layout: Form (8 cols) & Studio Dossier (4 cols) */}
       <section className="w-full px-4 sm:px-gutter py-8">
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-          {/* LEFT COLUMN: Directorial Dispatch Interactive Form (8 cols) */}
+          {/* LEFT COLUMN: Editorial Dispatch Interactive Form (8 cols) */}
           <div className="lg:col-span-8 flex flex-col bg-surface-container-low rounded-xl p-6 sm:p-8 shadow-2xl relative overflow-hidden border border-white/5">
             <div className="flex items-center justify-between pb-3 mb-6 bg-surface-container px-4 py-2.5 rounded border border-white/5">
               <div className="flex items-center gap-2 font-label-code text-xs text-primary uppercase font-bold">
                 <span className="material-symbols-outlined text-base text-secondary">tune</span>
-                <span>DIRECTORIAL DISPATCH • FORM VER 4.8</span>
+                <span>EDITORIAL DISPATCH • FORM VER 4.8</span>
               </div>
               <div className="font-meta-timecode text-xs text-on-surface-variant uppercase">
                 {timecode}
@@ -84,7 +84,7 @@ export default function ContactBooking() {
                   <span className="material-symbols-outlined text-3xl text-secondary">check</span>
                 </div>
                 <h3 className="font-headline-md text-2xl uppercase text-on-surface mb-2 font-semibold">
-                  Directorial Brief Transmitted
+                  Editorial Brief Transmitted
                 </h3>
                 <p className="font-meta-timecode text-xs text-secondary tracking-widest uppercase mb-2">
                   LOG REFERENCE // DISPATCH-REF #{refId}
@@ -274,7 +274,7 @@ export default function ContactBooking() {
                 {/* Project Vision Textarea */}
                 <div className="flex flex-col gap-1.5">
                   <label className="font-label-caps text-xs uppercase text-on-surface-variant tracking-wider flex items-center justify-between">
-                    <span>09. Creative Vision, Tone &amp; Director Expectations</span>
+                    <span>09. Creative Vision, Tone &amp; Editorial Expectations</span>
                     <span className="text-secondary font-meta-timecode font-bold">*REQ</span>
                   </label>
                   <textarea
@@ -317,7 +317,7 @@ export default function ContactBooking() {
                     type="submit"
                     className="w-full sm:w-auto px-8 py-3.5 bg-primary-container text-on-primary hover:bg-secondary hover:text-on-secondary transition-all font-label-caps text-xs uppercase tracking-widest font-semibold rounded flex items-center justify-center gap-2 shadow-xl cursor-pointer"
                   >
-                    <span>SEND DIRECTORIAL BRIEF</span>
+                    <span>SEND EDITORIAL BRIEF</span>
                     <span className="material-symbols-outlined text-base">arrow_forward</span>
                   </button>
                 </div>
@@ -399,7 +399,7 @@ export default function ContactBooking() {
                   <span className="material-symbols-outlined text-secondary text-lg mt-0.5">flight_takeoff</span>
                   <div className="flex flex-col">
                     <span className="font-label-code text-xs text-on-surface font-semibold">
-                      On-Set DIT / Directorial Flyout
+                      On-Set DIT / Editorial Suite Flyout
                     </span>
                     <span className="font-meta-timecode text-[10px] text-on-surface-variant">
                       Worldwide deployment on 48h notice
@@ -412,7 +412,7 @@ export default function ContactBooking() {
             {/* Direct Social & Registry Links */}
             <div className="bg-surface-container-low p-6 rounded-xl flex flex-col gap-3 shadow-md border border-white/5">
               <span className="font-label-caps text-xs uppercase text-on-surface-variant tracking-widest font-bold">
-                DIRECTORIAL CHANNELS
+                EDITORIAL &amp; SOCIAL CHANNELS
               </span>
               <div className="grid grid-cols-2 gap-2 pt-1">
                 <a
@@ -538,7 +538,7 @@ export default function ContactBooking() {
                 <div className="flex flex-col">
                   <span className="font-label-code text-xs text-on-surface font-semibold">Elena Lindqvist</span>
                   <span className="font-meta-timecode text-[10px] text-on-surface-variant uppercase">
-                    Creative Director • Nord House Berlin
+                    Head of Creative • Nord House Berlin
                   </span>
                 </div>
               </div>

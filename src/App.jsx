@@ -21,7 +21,7 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-dark-950 text-dark-100 flex flex-col font-sans selection:bg-gold-500 selection:text-dark-950">
+    <div className="min-h-screen bg-white text-zinc-900 flex flex-col font-sans selection:bg-amber-400 selection:text-zinc-950">
       {/* Sticky Navigation */}
       <Navbar onOpenShowreel={handleOpenShowreel} />
 
