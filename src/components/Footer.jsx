@@ -8,11 +8,10 @@ export default function Footer() {
   };
 
   const socials = [
-    { name: 'Vimeo', href: 'https://vimeo.com' },
+    { name: 'Instagram', href: 'https://www.instagram.com/pach.motion_1909/' },
     { name: 'YouTube', href: 'https://youtube.com' },
-    { name: 'Instagram', href: 'https://instagram.com' },
+    { name: 'Vimeo', href: 'https://vimeo.com' },
     { name: 'LinkedIn', href: 'https://linkedin.com' },
-    { name: 'IMDb', href: 'https://imdb.com' },
   ];
 
   return (
@@ -34,6 +33,14 @@ export default function Footer() {
                 className="text-xs text-zinc-500 hover:text-amber-700 font-mono transition-colors block"
               >
                 pankajdangriwal54@gmail.com
+              </a>
+              <a
+                href="https://www.instagram.com/pach.motion_1909/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-xs text-zinc-400 hover:text-pink-600 font-mono transition-colors block"
+              >
+                @pach.motion_1909
               </a>
             </div>
           </div>

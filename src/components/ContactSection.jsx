@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Mail, Phone, MapPin, Send, CheckCircle2, Copy, Check, Clock, Globe } from 'lucide-react';
+import { Mail, Phone, MapPin, Send, CheckCircle2, Copy, Check, Clock, Globe, Instagram, ArrowUpRight } from 'lucide-react';
 
 export default function ContactSection() {
   const [formData, setFormData] = useState({
@@ -15,6 +15,8 @@ export default function ContactSection() {
   const [loading, setLoading] = useState(false);
 
   const directEmail = 'pankajdangriwal54@gmail.com';
+  const instaUrl = 'https://www.instagram.com/pach.motion_1909/';
+  const instaHandle = '@pach.motion_1909';
 
   const handleCopyEmail = () => {
     navigator.clipboard.writeText(directEmail);
@@ -83,6 +85,37 @@ export default function ContactSection() {
                   </>
                 )}
               </button>
+            </div>
+
+            {/* Direct Instagram Card */}
+            <div className="p-5 rounded-2xl bg-white border border-zinc-200 shadow-subtle mb-8 flex items-center justify-between gap-4">
+              <a
+                href={instaUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-3 truncate group/insta"
+                title={`Open Instagram profile ${instaHandle}`}
+              >
+                <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-amber-500/10 via-pink-500/15 to-purple-500/15 border border-pink-500/20 text-pink-600 flex items-center justify-center shrink-0 group-hover/insta:bg-gradient-to-tr group-hover/insta:from-amber-500 group-hover/insta:to-pink-600 group-hover/insta:text-white transition-all duration-300">
+                  <Instagram className="w-5 h-5" />
+                </div>
+                <div className="truncate">
+                  <span className="text-xs text-zinc-500 font-medium block">Instagram Direct</span>
+                  <span className="text-sm font-bold text-zinc-950 font-mono truncate block group-hover/insta:text-pink-600 transition-colors">
+                    {instaHandle}
+                  </span>
+                </div>
+              </a>
+
+              <a
+                href={instaUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-3.5 py-1.5 rounded-lg bg-zinc-100 hover:bg-zinc-200 text-xs text-zinc-800 font-bold transition-colors flex items-center gap-1.5 shrink-0"
+              >
+                <span>DM</span>
+                <ArrowUpRight className="w-3.5 h-3.5 text-zinc-600" />
+              </a>
             </div>
 
             {/* Availability Highlights */}

@@ -444,11 +444,11 @@ export default function ContactBooking() {
                 </a>
                 <a
                   className="flex items-center justify-between p-2.5 bg-surface-container hover:bg-surface-container-high rounded text-on-surface transition-colors border border-white/5"
-                  href="https://instagram.com"
+                  href="https://www.instagram.com/pach.motion_1909/"
                   target="_blank"
                   rel="noreferrer"
                 >
-                  <span className="font-label-code text-[11px] uppercase">Instagram</span>
+                  <span className="font-label-code text-[11px] uppercase">Instagram (@pach.motion_1909)</span>
                   <span className="material-symbols-outlined text-xs text-secondary">open_in_new</span>
                 </a>
                 <a
